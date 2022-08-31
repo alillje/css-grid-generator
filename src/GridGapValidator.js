@@ -1,3 +1,4 @@
+import { Measurements } from './CssMeasures.js'
 
 /**
  * Validates input values for a css grid layout.
@@ -13,13 +14,10 @@ export class GridGapValidator {
     let error = ''
     if (typeof gap !== 'string') {
       error = 'Input must be a string'
-    } else if (gap.slice(-2) !== 'px' && gap.slice(-1) !== '%') {
-      error = 'Input must end with px or %'
+    } else if (!Object.values(Measurements).some(value => gap.endsWith(value))) {
+      error = 'Input must end with a valid CSS measurement'
     }
-    if (error.length > 0) {
-      return error
-    } else {
-      return undefined
-    }
+
+    return !error ? undefined : error
   }
 }

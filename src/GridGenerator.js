@@ -3,10 +3,6 @@ import { GridValidator } from './GridValidator.js'
  * Creates a string representing a CSS grid layout.
  */
 export class GridGenerator {
-  #rows
-  #columns
-  #rowGap
-  #columnGap
   #gridValidator
   /**
    * Creates an instance of GridGenerator.
@@ -25,17 +21,18 @@ export class GridGenerator {
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
    * @returns {string|object} - The CSS grid layout template, or if input contains errors, returns an object with the error messages.
    */
-  createGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
+  grid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     const error = this.#gridValidator.validateInput(rows, columns, rowGap, columnGap)
     if (!error) {
-      const grid = `
-      width: 100%;
-      height: 100%;
-      display: grid;
-      grid-template-rows: ${this.#rows.join(' ')};
-      grid-template-columns: ${this.#columns.join(' ')};
-      grid-row-gap: ${this.#rowGap}
-      grid-column-gap: ${this.#columnGap}`
+      const grid = `{ 
+width: 100%;
+height: 100%;
+display: grid;
+grid-template-rows: ${rows.join(' ')};
+grid-template-columns: ${columns.join(' ')};
+grid-row-gap: ${rowGap}
+grid-column-gap: ${columnGap}
+}`
       return grid
     } else {
       return error

@@ -1,4 +1,6 @@
 
+import { Measurements } from './CssMeasures.js'
+
 /**
  * Validates input values for a css grid layout.
  */
@@ -9,19 +11,17 @@ export class RowColumnValidator {
    * @param {Array} columnsOrRows - An array containing different values representing colum or row properties in a css grid layout.
    * @returns {(Array|undefined)} An array containing the error messages corresponding to the errors, otherwise undefined.
    */
-  validateColumnOrRowInput (columnsOrRows) {
+  validate (columnsOrRows) {
     const error = []
     for (const columnOrRow of columnsOrRows) {
       if (typeof columnOrRow !== 'string') {
         error.push('Input must be a string')
-      } else if (columnOrRow.slice(-2) !== 'px' && columnOrRow.slice(-1) !== '%') {
-        error.push('Input must end with px or %')
+        // Check if ending/measurement is valid
+      } else if (!Object.values(Measurements).some(value => columnOrRow.endsWith(value))) {
+        error.push('Input must end with a valid CSS measurement')
       }
     }
-    if (error.length > 0) {
-      return error
-    } else {
-      return undefined
-    }
+
+    return !error.length ? undefined : error
   }
 }
