@@ -7,4 +7,4 @@ grid.columnGap = '20px'
 
 const gridGenerator = new GridGenerator(grid)
 
-console.log(gridGenerator.grid(grid))
+console.log(gridGenerator.createGrid(grid))

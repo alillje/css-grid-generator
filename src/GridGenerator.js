@@ -21,7 +21,7 @@ export class GridGenerator {
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
    * @returns {string|object} - The CSS grid layout template, or if input contains errors, returns an object with the error messages.
    */
-  grid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
+  createGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     const error = this.#gridValidator.validateInput(rows, columns, rowGap, columnGap)
     if (!error) {
       const grid = `{ 
@@ -49,7 +49,7 @@ grid-column-gap: ${columnGap};
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
    * @param {string} grid.element - The DOM element to manipulate.
    */
-  style ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px', element }) {
+  setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px', element }) {
     document.querySelector(element).style.width = '100%'
     document.querySelector(element).style.height = '100%'
     document.querySelector(element).style.display = 'grid'
