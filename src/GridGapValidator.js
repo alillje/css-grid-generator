@@ -17,7 +17,6 @@ export class GridGapValidator {
     } else if (!Object.values(Measurements).some(value => gap.endsWith(value))) {
       error = 'Input must end with a valid CSS measurement'
     }
-
     return !error ? undefined : error
   }
 }
