@@ -1,6 +1,16 @@
+/**
+ * Module for class GridGenerator.
+ *
+ * @author Andreas Lillje
+ * version 1.0.0
+ */
+
 import { GridValidator } from './GridValidator.js'
+
 /**
  * Creates a string representing a CSS grid layout.
+ *
+ * @class
  */
 export class GridGenerator {
   #gridValidator

@@ -1,7 +1,16 @@
+/**
+ * Module for class GridGapValidator.
+ *
+ * @author Andreas Lillje
+ * version 1.0.0
+ */
+
 import { Measurements } from './CssMeasures.js'
 
 /**
- * Validates input values for a css grid layout.
+ * Validates input values for a css grid layout
+ *
+ * @class
  */
 export class GridGapValidator {
   /**

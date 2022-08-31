@@ -1,8 +1,17 @@
+/**
+ * Module for class GridValidator.
+ *
+ * @author Andreas Lillje
+ * version 1.0.0
+ */
+
 import { RowColumnValidator } from './RowColumnValidator.js'
 import { GridGapValidator } from './GridGapValidator.js'
 
 /**
  * Validates input values for a css grid layout.
+ *
+ * @class
  */
 export class GridValidator {
   #rowColumnValidator
