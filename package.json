@@ -6,8 +6,13 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andreas Lillje",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@lnu/eslint-config": "^1.1.6"
+  }
 }
