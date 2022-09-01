@@ -33,8 +33,7 @@ export class GridValidator {
    * @param {string} columnGap - A string representing the grid-column-gap property.
    * @returns {(object|undefined)} An object containing error messages corresponding to the propery.
    */
-  validateInput (rows, columns, rowGap, columnGap) {
-    let valid = true
+  validateGridParameters (rows, columns, rowGap, columnGap) {
     const errors = {
       columnErrors: this.#rowColumnValidator.validate(columns),
       rowErrors: this.#rowColumnValidator.validate(rows),
@@ -42,13 +41,23 @@ export class GridValidator {
       rowGap: this.#gridGapValidator.validateGaps(rowGap)
 
     }
+    const valid = this.checkIfErrors(errors)
+    return !valid ? errors : undefined
+  }
 
+  /**
+   * Checks if every key in an object has a value that represents one or more errors.
+   *
+   * @param {object} errors - An object with arrays of errors for every value.
+   * @returns {boolean} - true if errors are non-existen, otherwise false.
+   */
+  checkIfErrors (errors) {
+    let valid = true
     for (const value of Object.values(errors)) {
       if (value) {
         valid = false
       }
     }
-
-    return !valid ? errors : undefined
+    return valid
   }
 }

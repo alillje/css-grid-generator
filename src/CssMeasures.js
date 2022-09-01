@@ -12,12 +12,12 @@
  * @enum {string}
  */
 export const Measurements = Object.freeze({
-  CM: 'cm',
-  MM: 'mm',
-  IN: 'in',
-  PX: 'px',
-  PT: 'pt',
-  PC: 'pc',
+  CENTIMETERS: 'cm',
+  MILIMETERS: 'mm',
+  INCHES: 'in',
+  PIXELS: 'px',
+  POINTS: 'pt',
+  PICAS: 'pc',
   EM: 'em',
   EX: 'ex',
   CH: 'ch',

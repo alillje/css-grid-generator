@@ -32,7 +32,7 @@ export class GridGenerator {
    * @returns {string|object} - The CSS grid layout template, or if input contains errors, returns an object with the error messages.
    */
   createGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
-    const error = this.#gridValidator.validateInput(rows, columns, rowGap, columnGap)
+    const error = this.#gridValidator.validateGridParameters(rows, columns, rowGap, columnGap)
     if (!error) {
       const grid = `{ 
 width: 100%;

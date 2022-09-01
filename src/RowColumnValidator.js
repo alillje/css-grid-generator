@@ -24,11 +24,25 @@ export class RowColumnValidator {
       if (typeof columnOrRow !== 'string') {
         error.push('Input must be a string')
         // Check if ending/measurement is valid
-      } else if (!Object.values(Measurements).some(value => columnOrRow.endsWith(value))) {
+      } else if (!this.hasCorrectSuffix(columnOrRow)) {
         error.push('Input must end with a valid CSS measurement')
       }
     }
 
     return !error.length ? undefined : error
+  }
+
+  /**
+   * Checks if a Row or Column input has a correct unit suffix.
+   *
+   * @param {string} columnOrRow - The unit input to validate.
+   * @returns {boolean} - true if column or row has a correct unit suffix, otherwis false.
+   */
+  hasCorrectSuffix (columnOrRow) {
+    if (Object.values(Measurements).some(unit => columnOrRow.endsWith(unit))) {
+      return true
+    } else {
+      return false
+    }
   }
 }
