@@ -37,8 +37,8 @@ export class GridValidator {
     const errors = {
       columnErrors: this.#rowColumnValidator.validate(columns),
       rowErrors: this.#rowColumnValidator.validate(rows),
-      columnGap: this.#gridGapValidator.validateGaps(columnGap),
-      rowGap: this.#gridGapValidator.validateGaps(rowGap)
+      columnGap: this.#gridGapValidator.validate(columnGap),
+      rowGap: this.#gridGapValidator.validate(rowGap)
 
     }
     const valid = this.checkIfErrors(errors)
