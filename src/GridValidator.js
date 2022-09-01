@@ -35,11 +35,10 @@ export class GridValidator {
    */
   validateGridParameters (rows, columns, rowGap, columnGap) {
     const errors = {
-      columnErrors: this.#rowColumnValidator.validate(columns),
       rowErrors: this.#rowColumnValidator.validate(rows),
-      columnGap: this.#gridGapValidator.validate(columnGap),
-      rowGap: this.#gridGapValidator.validate(rowGap)
-
+      columnErrors: this.#rowColumnValidator.validate(columns),
+      rowGap: this.#gridGapValidator.validate(rowGap),
+      columnGap: this.#gridGapValidator.validate(columnGap)
     }
     const valid = this.checkIfErrors(errors)
     return !valid ? errors : undefined

@@ -20,16 +20,19 @@ export class RowColumnValidator {
    */
   validate (columnsOrRows) {
     const error = []
-    for (const columnOrRow of columnsOrRows) {
-      if (typeof columnOrRow !== 'string') {
-        error.push('Input must be a string')
-      } else if (!this.hasCorrectSuffix(columnOrRow)) {
-        error.push('Input must end with a valid CSS measurement')
-      } else if (!this.isNumber(columnOrRow)) {
-        error.push('Row and column values must be numbers')
+    if (Array.isArray(columnsOrRows)) {
+      for (const columnOrRow of columnsOrRows) {
+        if (typeof columnOrRow !== 'string') {
+          error.push('Input must be a string')
+        } else if (!this.hasCorrectSuffix(columnOrRow)) {
+          error.push('Input must end with a valid CSS measurement')
+        } else if (!this.isNumber(columnOrRow)) {
+          error.push('Row and column values must be numbers')
+        }
       }
+    } else {
+      error.push('Row and column values must be contained in an Array')
     }
-
     return !error.length ? undefined : error
   }
 

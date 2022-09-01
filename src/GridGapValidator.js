@@ -26,7 +26,7 @@ export class GridGapValidator extends RowColumnValidator {
     } else if (!this.hasCorrectSuffix(gap)) {
       error = 'Input must end with a valid CSS measurement'
     } else if (!this.isNumber(gap)) {
-      error = 'Row and column values must be numbers'
+      error = 'Gap values must be numbers'
     }
     return !error.length ? undefined : error
   }

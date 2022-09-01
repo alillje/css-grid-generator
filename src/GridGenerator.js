@@ -31,16 +31,16 @@ export class GridGenerator {
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
    * @returns {string|object} - The CSS grid layout template, or if input contains errors, returns an object with the error messages.
    */
-  createGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
+  getTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     const error = this.#gridValidator.validateGridParameters(rows, columns, rowGap, columnGap)
     if (!error) {
-      const grid = `{ 
-display: grid;
-grid-template-rows: ${rows.join(' ')};
-grid-template-columns: ${columns.join(' ')};
-grid-row-gap: ${rowGap};
-grid-column-gap: ${columnGap};
-}`
+      const grid = `.element { 
+  display: grid;
+  grid-template-rows: ${rows.join(' ')};
+  grid-template-columns: ${columns.join(' ')};
+  grid-row-gap: ${rowGap};
+  grid-column-gap: ${columnGap};
+  }`
       return grid
     } else {
       return error
@@ -55,14 +55,16 @@ grid-column-gap: ${columnGap};
    * @param {Array} grid.columns - An array containing different values representing grid-template-column properties in a css grid layout.
    * @param {string} grid.rowGap - A string representing the grid-row-gap property.
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
-   * @param {string} grid.element - The DOM element to manipulate.
+   * @param {string} element - The DOM element to manipulate.
    */
-  setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px', element }) {
+  setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }, element) {
+    if (!this.#gridValidator.validateGridParameters(rows, columns, rowGap, columnGap)) {
     // Error hantling for when missing a element needs to be implemented.
-    document.querySelector(element).style.display = 'grid'
-    document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
-    document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`
-    document.querySelector(element).style.gridRowGap = `${rowGap}`
-    document.querySelector(element).style.gridColumnGap = `${columnGap}`
+      document.querySelector(element).style.display = 'grid'
+      document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
+      document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`
+      document.querySelector(element).style.gridRowGap = `${rowGap}`
+      document.querySelector(element).style.gridColumnGap = `${columnGap}`
+    }
   }
 }

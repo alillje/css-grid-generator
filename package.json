@@ -8,11 +8,14 @@
     "start": "node src/index.js",
     "lint": "npx eslint ./src || exit 0",
     "lint:fix": "npx eslint ./src --fix || exit 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "author": "Andreas Lillje",
   "license": "ISC",
   "dependencies": {
     "@lnu/eslint-config": "^1.1.6"
+  },
+  "devDependencies": {
+    "jest": "^29.0.1"
   }
 }

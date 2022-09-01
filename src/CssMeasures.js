@@ -18,6 +18,7 @@ export const Measurements = Object.freeze({
   PIXELS: 'px',
   POINTS: 'pt',
   PICAS: 'pc',
+  FR: 'fr',
   EM: 'em',
   EX: 'ex',
   CH: 'ch',
