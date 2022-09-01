@@ -35,8 +35,6 @@ export class GridGenerator {
     const error = this.#gridValidator.validateGridParameters(rows, columns, rowGap, columnGap)
     if (!error) {
       const grid = `{ 
-width: 100%;
-height: 100%;
 display: grid;
 grid-template-rows: ${rows.join(' ')};
 grid-template-columns: ${columns.join(' ')};
@@ -60,8 +58,7 @@ grid-column-gap: ${columnGap};
    * @param {string} grid.element - The DOM element to manipulate.
    */
   setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px', element }) {
-    document.querySelector(element).style.width = '100%'
-    document.querySelector(element).style.height = '100%'
+    // Error hantling for when missing a element needs to be implemented.
     document.querySelector(element).style.display = 'grid'
     document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
     document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`

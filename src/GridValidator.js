@@ -31,7 +31,7 @@ export class GridValidator {
    * @param {Array} columns - An array containing different values representing grid-template-column properties in a css grid layout.
    * @param {string} rowGap - A string representing the grid-row-gap property.
    * @param {string} columnGap - A string representing the grid-column-gap property.
-   * @returns {(object|undefined)} An object containing error messages corresponding to the propery.
+   * @returns {(object|undefined)} - An object containing error messages corresponding to the propery.
    */
   validateGridParameters (rows, columns, rowGap, columnGap) {
     const errors = {
@@ -56,6 +56,7 @@ export class GridValidator {
     for (const value of Object.values(errors)) {
       if (value) {
         valid = false
+        break
       }
     }
     return valid

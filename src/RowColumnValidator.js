@@ -24,8 +24,10 @@ export class RowColumnValidator {
       if (typeof columnOrRow !== 'string') {
         error.push('Input must be a string')
         // Check if ending/measurement is valid
-      } else if (!this.hasCorrectSuffix(columnOrRow)) {
+      } else if (!this.#hasCorrectSuffix(columnOrRow)) {
         error.push('Input must end with a valid CSS measurement')
+      } else if (!this.#isNumber(columnOrRow)) {
+        error.push('Row and column values must be numbers')
       }
     }
 
@@ -38,11 +40,51 @@ export class RowColumnValidator {
    * @param {string} columnOrRow - The unit input to validate.
    * @returns {boolean} - true if column or row has a correct unit suffix, otherwis false.
    */
-  hasCorrectSuffix (columnOrRow) {
+  #hasCorrectSuffix (columnOrRow) {
     if (Object.values(Measurements).some(unit => columnOrRow.endsWith(unit))) {
       return true
     } else {
       return false
+    }
+  }
+
+  /**
+   * Checks if a string can be converted to a valid number.
+   *
+   * @param {string} columnOrRow - The string to validate.
+   * @returns {boolean} true if the string can be converted to a valid number, otherwise false.
+   */
+  #isNumber (columnOrRow) {
+    let isNumber = true
+    const extracedValue = this.#removeUnitSuffix(columnOrRow)
+    if ((typeof parseInt((extracedValue)) !== 'number') || isNaN(extracedValue)) {
+      isNumber = false
+    }
+    return isNumber
+  }
+
+  /**
+   * Takes a string and removes the unit suffix if any.
+   *
+   * @param {string} columnOrRow - The string to extract the suffix from.
+   * @returns {string} - The string with the CSS unit suffix removed.
+   */
+  #removeUnitSuffix (columnOrRow) {
+    const unitSuffix = this.#getUnitSuffix(columnOrRow)
+    return columnOrRow.replace(unitSuffix, '')
+  }
+
+  /**
+   * Takes a string and returns the unit suffix if any.
+   *
+   * @param {string} columnOrRow - The string to extract the suffix from.
+   * @returns {string} - The CSS unit suffix.
+   */
+  #getUnitSuffix (columnOrRow) {
+    for (const unit of Object.values(Measurements)) {
+      if (columnOrRow.endsWith(unit)) {
+        return unit
+      }
     }
   }
 }
