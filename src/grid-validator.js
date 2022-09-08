@@ -17,7 +17,7 @@ export class GridValidator {
   #rowColumnValidator
   #gapValidator
   /**
-   * Creates an instance of GridGenerator.
+   * Creates an instance of GridValidator.
    */
   constructor () {
     this.#rowColumnValidator = new RowColumnValidator()

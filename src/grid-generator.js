@@ -29,11 +29,26 @@ export class GridGenerator {
    * @param {Array} grid.columns - An array containing different values representing grid-template-column properties in a css grid layout.
    * @param {string} grid.rowGap - A string representing the grid-row-gap property.
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
-   * @returns {string|object} - The CSS grid layout template, or if input contains errors, returns an object with the error messages.
+   * @returns {string|null} - The CSS grid layout template, or if input contains errors, return null.
    */
+  // getCssTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
+  //   const error = this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap)
+  //   if (!error) {
+  //     const grid = `.element {
+  // display: grid;
+  // grid-template-rows: ${rows.join(' ')};
+  // grid-template-columns: ${columns.join(' ')};
+  // grid-row-gap: ${rowGap};
+  // grid-column-gap: ${columnGap};
+  // }`
+  //     return grid
+  //   } else {
+  //     return error
+  //   }
+  // }
   getCssTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
-    const error = this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap)
-    if (!error) {
+    try {
+      this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap)
       const grid = `.element { 
   display: grid;
   grid-template-rows: ${rows.join(' ')};
@@ -42,8 +57,9 @@ export class GridGenerator {
   grid-column-gap: ${columnGap};
   }`
       return grid
-    } else {
-      return error
+    } catch (e) {
+      console.error(e)
+      return null
     }
   }
 
@@ -93,7 +109,6 @@ export class GridGenerator {
         positions[key] = undefined
       }
     }
-    console.log(positions)
     if (positions.startRow && positions.startColumn) {
       document.querySelector(element).style.gridRow = `${parseInt(positions.startRow)} / ${!positions.endRow ? parseInt(positions.startRow) : parseInt(positions.endRow)}`
       document.querySelector(element).style.gridColumn = `${parseInt(positions.startColumn)} / ${!positions.endColumn ? parseInt(positions.startColumn) : parseInt(positions.endColumn)}`

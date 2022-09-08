@@ -6,8 +6,9 @@
  */
 
 import { Measurements } from './css-measurments.js'
+
 /**
- * Validates input values for a css grid layout.
+ * Validates input values for css grid rows or columns.
  *
  * @class
  */
@@ -16,25 +17,40 @@ export class RowColumnValidator {
    * Validates the input represening rows or columns css values in a CSS grid layout.
    *
    * @param {Array} columnsOrRows - An array containing different values representing colum or row properties in a css grid layout.
-   * @returns {(Array|undefined)} An array containing the error messages corresponding to the errors, otherwise undefined.
+   * @throws {(error)} - If any invalid parameters are passed.
    */
   validate (columnsOrRows) {
-    const error = []
     if (Array.isArray(columnsOrRows)) {
       for (const columnOrRow of columnsOrRows) {
         if (typeof columnOrRow !== 'string') {
-          error.push('Input must be a string')
+          throw new Error('Input must be a string')
         } else if (!this.hasCorrectSuffix(columnOrRow)) {
-          error.push('Input must end with a valid CSS measurement')
+          throw new Error('Input must end with a valid CSS measurement')
         } else if (!this.isNumber(columnOrRow)) {
-          error.push('Row and column values must be numbers')
+          throw new Error('Row and column values must be numbers')
         }
       }
     } else {
-      error.push('Row and column values must be contained in an Array')
+      throw new Error('Row and column values must be contained in an Array')
     }
-    return !error.length ? undefined : error
   }
+  // validate (columnsOrRows) {
+  //   const error = []
+  //   if (Array.isArray(columnsOrRows)) {
+  //     for (const columnOrRow of columnsOrRows) {
+  //       if (typeof columnOrRow !== 'string') {
+  //         error.push('Input must be a string')
+  //       } else if (!this.hasCorrectSuffix(columnOrRow)) {
+  //         error.push('Input must end with a valid CSS measurement')
+  //       } else if (!this.isNumber(columnOrRow)) {
+  //         error.push('Row and column values must be numbers')
+  //       }
+  //     }
+  //   } else {
+  //     error.push('Row and column values must be contained in an Array')
+  //   }
+  //   return !error.length ? undefined : error
+  // }
 
   /**
    * Checks if a CSS value has a correct unit suffix.

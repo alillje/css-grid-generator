@@ -2,7 +2,7 @@ import { gridGenerator } from './app.js'
 const grid = {}
 // Test
 grid.columns = ['1fr', '1fr', '1fr', '1fr']
-grid.rows = ['1fr', '1fr', '1fr']
+grid.rows = ['1fr', '1fr', '1fr', '1fr']
 grid.columnGap = '5px'
 grid.rowGap = '5px'
 
@@ -13,4 +13,4 @@ const div = document.createElement('div')
 div.style.backgroundColor = 'red'
 div.setAttribute('class', 'children')
 document.querySelector('.parent').appendChild(div)
-gridGenerator.setPostition({ startRow: 1, startColumn: 2 }, '.children')
+gridGenerator.setPostition({ startRow: 3, startColumn: 2 }, '.children')
