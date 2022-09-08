@@ -17,17 +17,15 @@ export class GapValidator extends RowColumnValidator {
    * Validates the input value represening a gap property in a CSS grid layout.
    *
    * @param {string} gap - A string representing the gap property.
-   * @returns {(string|undefined)} The error message corresponding to the error, otherwise undefined.
+   * @throws {(Error)} - If any invalid parameters are passed.
    */
   validate (gap) {
-    let error = ''
     if (typeof gap !== 'string') {
-      error = 'Input must be a string'
+      throw new Error('Input must be a string')
     } else if (!this.hasCorrectSuffix(gap)) {
-      error = 'Input must end with a valid CSS measurement'
+      throw new Error('Input must end with a valid CSS measurement')
     } else if (!this.isNumber(gap)) {
-      error = 'Gap values must be numbers'
+      throw new Error('Gap values must be numbers')
     }
-    return !error.length ? undefined : error
   }
 }

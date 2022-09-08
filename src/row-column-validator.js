@@ -17,7 +17,7 @@ export class RowColumnValidator {
    * Validates the input represening rows or columns css values in a CSS grid layout.
    *
    * @param {Array} columnsOrRows - An array containing different values representing colum or row properties in a css grid layout.
-   * @throws {(error)} - If any invalid parameters are passed.
+   * @throws {(Error)} - If any invalid parameters are passed.
    */
   validate (columnsOrRows) {
     if (Array.isArray(columnsOrRows)) {
