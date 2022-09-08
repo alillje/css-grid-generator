@@ -2,7 +2,7 @@
  * Module for class GridGenerator.
  *
  * @author Andreas Lillje
- * version 1.0.0
+ * version 1.1.0
  */
 
 import { GridValidator } from './grid-validator.js'
@@ -88,7 +88,7 @@ export class GridGenerator {
   /**
    * Modifies an element in the DOM to set grid positioning.
    * Must contain a value for startRow and startColumn.
-   * If no end values exist, they will be set to start values.
+   * If no end values exist, they will be set to same as start values.
    *
    * @param {object} positions - An object containin all the position properties in a css grid.
    * @param {number} positions.startRow - A number representig a HTML elements row start position in a css grid layout.
