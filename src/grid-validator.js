@@ -32,31 +32,10 @@ export class GridValidator {
    * @param {string} rowGap - A string representing the grid-row-gap property.
    * @param {string} columnGap - A string representing the grid-column-gap property.
    */
-  invalidParams (rows, columns, rowGap, columnGap) {
-    // const errors = {
+  validateParams (rows, columns, rowGap, columnGap) {
     this.#rowColumnValidator.validate(rows)
     this.#rowColumnValidator.validate(columns)
     this.#gapValidator.validate(rowGap)
     this.#gapValidator.validate(columnGap)
-    // }
-    // const valid = this.checkIfErrors(errors)
-    // return !valid ? errors : undefined
-  }
-
-  /**
-   * Checks if every key in an object has a value that represents one or more errors.
-   *
-   * @param {object} errors - An object with arrays of errors for every value.
-   * @returns {boolean} - true if errors are non-existen, otherwise false.
-   */
-  checkIfErrors (errors) {
-    let valid = true
-    for (const value of Object.values(errors)) {
-      if (value) {
-        valid = false
-        break
-      }
-    }
-    return valid
   }
 }

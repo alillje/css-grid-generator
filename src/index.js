@@ -3,8 +3,8 @@ const grid = {}
 // Test
 grid.columns = ['1fr', '1fr', '1fr', '1fr']
 grid.rows = ['1fr', '1fr', '1fr', '1fr']
-grid.columnGap = '5px'
-grid.rowGap = 5
+grid.columnGap = '5.9px'
+grid.rowGap = '5px'
 
 console.log(gridGenerator.getCssTemplate(grid))
 

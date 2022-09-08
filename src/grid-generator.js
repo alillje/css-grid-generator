@@ -48,7 +48,7 @@ export class GridGenerator {
   // }
   getCssTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     try {
-      this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap)
+      this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
       const grid = `.element { 
   display: grid;
   grid-template-rows: ${rows.join(' ')};
@@ -75,7 +75,8 @@ export class GridGenerator {
    */
   setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }, element) {
     // Check if parameters are valid and that a string represeting an HTML element is defined.
-    if (!this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap) && element) {
+    this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
+    if (element) {
       document.querySelector(element).style.display = 'grid'
       document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
       document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`
