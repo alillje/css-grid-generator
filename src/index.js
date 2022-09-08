@@ -4,7 +4,7 @@ const grid = {}
 grid.columns = ['1fr', '1fr', '1fr', '1fr']
 grid.rows = ['1fr', '1fr', '1fr', '1fr']
 grid.columnGap = '5px'
-grid.rowGap = '5px'
+grid.rowGap = 5
 
 console.log(gridGenerator.getCssTemplate(grid))
 

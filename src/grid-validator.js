@@ -31,17 +31,16 @@ export class GridValidator {
    * @param {Array} columns - An array containing different values representing grid-template-column properties in a css grid layout.
    * @param {string} rowGap - A string representing the grid-row-gap property.
    * @param {string} columnGap - A string representing the grid-column-gap property.
-   * @returns {(object|undefined)} - An object containing error messages corresponding to the propery.
    */
   invalidParams (rows, columns, rowGap, columnGap) {
-    const errors = {
-      rowErrors: this.#rowColumnValidator.validate(rows),
-      columnErrors: this.#rowColumnValidator.validate(columns),
-      rowGap: this.#gapValidator.validate(rowGap),
-      columnGap: this.#gapValidator.validate(columnGap)
-    }
-    const valid = this.checkIfErrors(errors)
-    return !valid ? errors : undefined
+    // const errors = {
+    this.#rowColumnValidator.validate(rows)
+    this.#rowColumnValidator.validate(columns)
+    this.#gapValidator.validate(rowGap)
+    this.#gapValidator.validate(columnGap)
+    // }
+    // const valid = this.checkIfErrors(errors)
+    // return !valid ? errors : undefined
   }
 
   /**
