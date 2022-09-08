@@ -14,10 +14,3 @@ div.style.backgroundColor = 'red'
 div.setAttribute('class', 'children')
 document.querySelector('.parent').appendChild(div)
 gridGenerator.setPostition({ startRow: 1, startColumn: 2 }, '.children')
-
-// const children = grid.columns.length + grid.rows.length
-// for (let i = 0; i < children; i++) {
-//   const div = document.createElement('div')
-//   div.setAttribute('class', 'children')
-//   document.querySelector('.parent').appendChild(div)
-// }

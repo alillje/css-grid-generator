@@ -13,7 +13,7 @@ import { Measurements } from './css-measurments.js'
  */
 export class RowColumnValidator {
   /**
-   * Validates the input value represening a gap property in a CSS grid layout.
+   * Validates the input represening rows or columns css values in a CSS grid layout.
    *
    * @param {Array} columnsOrRows - An array containing different values representing colum or row properties in a css grid layout.
    * @returns {(Array|undefined)} An array containing the error messages corresponding to the errors, otherwise undefined.
@@ -37,13 +37,13 @@ export class RowColumnValidator {
   }
 
   /**
-   * Checks if a Row or Column input has a correct unit suffix.
+   * Checks if a CSS value has a correct unit suffix.
    *
-   * @param {string} columnOrRow - The unit input to validate.
+   * @param {string} cssValue - The unit input to validate.
    * @returns {boolean} - true if column or row has a correct unit suffix, otherwis false.
    */
-  hasCorrectSuffix (columnOrRow) {
-    if (Object.values(Measurements).some(unit => columnOrRow.endsWith(unit))) {
+  hasCorrectSuffix (cssValue) {
+    if (Object.values(Measurements).some(unit => cssValue.endsWith(unit))) {
       return true
     } else {
       return false
@@ -51,14 +51,14 @@ export class RowColumnValidator {
   }
 
   /**
-   * Checks if a string can be converted to a valid number.
+   * Checks if a string representing a css value can be converted to a valid number.
    *
-   * @param {string} columnOrRow - The string to validate.
+   * @param {string} cssValue - The string to validate.
    * @returns {boolean} true if the string can be converted to a valid number, otherwise false.
    */
-  isNumber (columnOrRow) {
+  isNumber (cssValue) {
     let isNumber = true
-    const extracedValue = this.removeUnitSuffix(columnOrRow)
+    const extracedValue = this.removeUnitSuffix(cssValue)
     if ((typeof parseInt((extracedValue)) !== 'number') || isNaN(extracedValue)) {
       isNumber = false
     }
@@ -66,25 +66,25 @@ export class RowColumnValidator {
   }
 
   /**
-   * Takes a string and removes the unit suffix if any.
+   * Takes a string representing a css value and removes the unit suffix if any.
    *
-   * @param {string} columnOrRow - The string to extract the suffix from.
+   * @param {string} cssValue - The string to extract the suffix from.
    * @returns {string} - The string with the CSS unit suffix removed.
    */
-  removeUnitSuffix (columnOrRow) {
-    const unitSuffix = this.getUnitSuffix(columnOrRow)
-    return columnOrRow.replace(unitSuffix, '')
+  removeUnitSuffix (cssValue) {
+    const unitSuffix = this.getUnitSuffix(cssValue)
+    return cssValue.replace(unitSuffix, '')
   }
 
   /**
-   * Takes a string and returns the unit suffix if any.
+   * Takes a string representing a css value and returns the unit suffix if any.
    *
-   * @param {string} columnOrRow - The string to extract the suffix from.
+   * @param {string} cssValue - The string to extract the suffix from.
    * @returns {string} - The CSS unit suffix.
    */
-  getUnitSuffix (columnOrRow) {
+  getUnitSuffix (cssValue) {
     for (const unit of Object.values(Measurements)) {
-      if (columnOrRow.endsWith(unit)) {
+      if (cssValue.endsWith(unit)) {
         return unit
       }
     }

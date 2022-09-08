@@ -1,11 +1,11 @@
-import { GridValidator } from '../GridValidator.js'
+import { GridValidator } from '../grid-validator.js'
 
 const gridValidator = new GridValidator()
 
 describe('Validates grid input parameters', () => {
   test('Correct Values at all parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['200px', '200px', '200px'],
         ['100px', '100px'],
         '5px',
@@ -15,7 +15,7 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing one parameter', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['100px', '100px'],
         '5px',
         '5px'
@@ -24,7 +24,7 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing one parameter', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['300px', '300px', '400px', '500%'],
         ['100px', '100px'],
         '5px'
@@ -33,7 +33,7 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing two parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['300px', '300px', '400px', '500%'],
         '5px'
       )
@@ -41,7 +41,7 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing two parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['300px', '300px', '400px', '500%'],
         ['100px', '100px']
       )
@@ -49,7 +49,7 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing two parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         '5px',
         '5px'
       )
@@ -57,14 +57,14 @@ describe('Validates grid input parameters', () => {
   })
   test('Missing three parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         '5px'
       )
     ).toBeInstanceOf(Object)
   })
   test('Missing three parameters', () => {
     expect(
-      gridValidator.validateGridParameters(
+      gridValidator.invalidParams(
         ['1fr', '1fr', '2fr', '1fr', '1fr']
       )
     ).toBeInstanceOf(Object)
