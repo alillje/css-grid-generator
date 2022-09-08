@@ -5,14 +5,14 @@
  * version 1.0.0
  */
 
-import { RowColumnValidator } from './RowColumnValidator.js'
+import { RowColumnValidator } from './row-column-validator.js'
 
 /**
  * Validates input values for a css grid layout
  *
  * @class
  */
-export class GridGapValidator extends RowColumnValidator {
+export class GapValidator extends RowColumnValidator {
   /**
    * Validates the input value represening a gap property in a CSS grid layout.
    *

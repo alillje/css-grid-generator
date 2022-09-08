@@ -5,7 +5,7 @@
  * version 1.0.0
  */
 
-import { Measurements } from './CssMeasures.js'
+import { Measurements } from './css-measurments.js'
 /**
  * Validates input values for a css grid layout.
  *

@@ -5,8 +5,8 @@
  * version 1.0.0
  */
 
-import { RowColumnValidator } from './RowColumnValidator.js'
-import { GridGapValidator } from './GridGapValidator.js'
+import { RowColumnValidator } from './row-column-validator.js'
+import { GapValidator } from './gap-validator.js'
 
 /**
  * Validates input values for a css grid layout.
@@ -15,13 +15,13 @@ import { GridGapValidator } from './GridGapValidator.js'
  */
 export class GridValidator {
   #rowColumnValidator
-  #gridGapValidator
+  #gapValidator
   /**
    * Creates an instance of GridGenerator.
    */
   constructor () {
     this.#rowColumnValidator = new RowColumnValidator()
-    this.#gridGapValidator = new GridGapValidator()
+    this.#gapValidator = new GapValidator()
   }
 
   /**
@@ -33,12 +33,12 @@ export class GridValidator {
    * @param {string} columnGap - A string representing the grid-column-gap property.
    * @returns {(object|undefined)} - An object containing error messages corresponding to the propery.
    */
-  validateGridParameters (rows, columns, rowGap, columnGap) {
+  invalidParams (rows, columns, rowGap, columnGap) {
     const errors = {
       rowErrors: this.#rowColumnValidator.validate(rows),
       columnErrors: this.#rowColumnValidator.validate(columns),
-      rowGap: this.#gridGapValidator.validate(rowGap),
-      columnGap: this.#gridGapValidator.validate(columnGap)
+      rowGap: this.#gapValidator.validate(rowGap),
+      columnGap: this.#gapValidator.validate(columnGap)
     }
     const valid = this.checkIfErrors(errors)
     return !valid ? errors : undefined
