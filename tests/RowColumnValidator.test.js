@@ -1,4 +1,4 @@
-import { RowColumnValidator } from '../row-column-validator.js'
+import { RowColumnValidator } from '../src/row-column-validator.js'
 
 const rowColumnValidator = new RowColumnValidator()
 

@@ -1,4 +1,4 @@
-import { GridValidator } from '../grid-validator.js'
+import { GridValidator } from '../src/grid-validator.js'
 
 const gridValidator = new GridValidator()
 
