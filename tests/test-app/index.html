@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Generator Test-App</title>
+    <script type="module" src="./js/index.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="parent">
+        </div>
+    </div>
+    <div class="inputFormContainer">
+        <div class="rowContainer">
+            <label for="numberOfRows">Enter number of rows</label>
+            <input type="text" id="numberOfRows">
+            <label for="numberOfRows">Enter height of rows</label>
+            <input type="text" id="heightOfRows">
+            <label for="rowUnit">Choose unit</label>
+            <select id="rowUnit"></select>
+        </div>
+        <div class="rowGapContainer">
+            <label for="rowGap">Enter row gap</label>
+            <input type="text" id="rowGap">
+            <label for="rowGapUnit">Choose unit</label>
+            <select id="rowGapUnit"></select>
+        </div>
+        <div class="columnContainer">
+            <label for="numberOfColumns">Enter number of columns</label>
+            <input type="text" id="numberOfColumns">
+            <label for="heightOfColumns">Enter width of columns</label>
+            <input type="text" id="widthOfColumns">
+            <label for="columnUnit">Choose unit</label>
+            <select id="columnUnit"></select>
+        </div>
+        <div class="columnGapContainer">
+            <label for="columnGap">Enter column gap</label>
+            <input type="text" id="columnGap">
+            <label for="columnGapUnit">Choose unit</label>
+            <select id="columnGapUnit"></select>
+        </div>
+        <div id="buttonContainer">
+            <button id="setGridButton">Set grid layout</button>
+        </div>
+    </div>
+</body>
+
+</html>
