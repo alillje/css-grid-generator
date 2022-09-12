@@ -46,7 +46,7 @@ for (const unit of Object.values(Measurements)) {
 
 document.querySelector('#setGridButton').addEventListener('click', (event) => {
   event.preventDefault()
-  document.querySelector('.parent').innerHTML = ''
+  document.querySelector('#messageBox').textContent = ''
   const rows = []
   const columns = []
   // Set row and column gap
@@ -62,15 +62,23 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
   for (let i = 0; i < document.querySelector('#numberOfColumns').value; i++) {
     columns.push(`${document.querySelector('#widthOfColumns').value}${document.querySelector('#columnUnit').value}`)
   }
+  if (rows.length > 0 && columns.length > 0 & rowGap.length > 0 & columnGap.length > 0) {
+    document.querySelector('.container').innerHTML = ''
 
-  // Set Grid on '.parent'
-  gridGenerator.setGrid({ rows, columns, rowGap, columnGap }, '.parent')
+    document.querySelector('#messageBox').classList.add('hidden')
 
-  // Add elements to parent to illustrate grid layout
-  for (let i = 0; i < columns.length * rows.length; i++) {
-    const child = document.createElement('div')
-    child.style.backgroundColor = 'red'
-    document.querySelector('.parent').appendChild(child)
+    // Set Grid for '.parent'
+    gridGenerator.setGrid({ rows, columns, rowGap, columnGap }, '.container')
+
+    // Add elements to parent to illustrate grid layout
+    for (let i = 0; i < columns.length * rows.length; i++) {
+      const child = document.createElement('div')
+      child.style.backgroundColor = '#39173b97'
+      document.querySelector('.container').appendChild(child)
+    }
+  } else {
+    document.querySelector('#messageBox').classList.remove('hidden')
+    document.querySelector('#messageBox').textContent = 'All input parameters are required'
   }
 })
 

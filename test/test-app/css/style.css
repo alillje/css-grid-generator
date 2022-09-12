@@ -1,88 +1,137 @@
 body {
-    display: grid;
-    height: 100%;
-    width: 100%;
-    grid-template-rows: 200px 500px 200px auto;;
-    grid-template-columns: 1fr 800px 1fr;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
-    background-color: #353535;
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1000px;
+  grid-template-columns: 100%;
+  grid-row-gap: 0px;
+  grid-column-gap: 20px;
+  background: rgb(27, 52, 23);
+  background: linear-gradient(
+    0deg,
+    rgba(27, 52, 23, 0.8449754901960784) 55%,
+    rgba(23, 80, 41, 0.8813900560224089) 100%
+  );
+  align-items: middle;
 }
-
 .container {
-    background-color: #fdfdfd;
-    grid-row: 2;
-    grid-column: 2;
+  min-height: 100%;
+  width: auto;
+  /* border-top: 3px solid #464646; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
 }
 
+.childDiv {
+    background-color: rgba(236, 62, 218, 0.146);
+  }
 .parent {
-    height: 100%;
-    background-color: #ababab;
+  height: 100%;
+  background-color: #ababab;
 }
+
+
 
 .children {
-    background-color:aqua;
+  background-color: rgba(236, 62, 218, 0.146);
 }
 
 .inputFormContainer {
-    height: 100%;
-    grid-row: 3;
-    grid-column: 2;
-    display: grid;
-    height: 100%;
-    width: 100%;
-    grid-template-rows: 70% 30%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;;
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
+  display: grid;
+  height: 300px;
+  width: 700px;
+  grid-template-rows: 60% 20% 15%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+  padding: 20px;
+  margin: 0 auto;
 }
 
 .rowContainer {
-    grid-row: 1;
-    grid-column: 1;
-    display:flex;
-    flex-direction: column;
-    color: #ffffff;
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  color: #ffffff;
 }
 
 .rowGapContainer {
-    grid-row: 1;
-    grid-column: 2;
-    display:flex;
-    flex-direction: column;
-    gap: 5px;
-    color: #ffffff;
-
+  grid-row: 1;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #ffffff;
 }
 
 .columnContainer {
-    grid-row: 1;
-    grid-column: 3;
-    display:flex;
-    flex-direction: column;
-    color: #ffffff;
-
+  grid-row: 1;
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #ffffff;
 }
 
 .columnGapContainer {
-    grid-row: 1;
-    grid-column: 4;
-    display:flex;
-    flex-direction: column;
-    color: #ffffff;
-
+  grid-row: 1;
+  grid-column: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #ffffff;
 }
 
 #buttonContainer {
-    grid-row: 2;
-    grid-column: 2 / 4;
-    align-self: center;
-    width: 100%;
-    height: 70%;
-    display: flex;
-    justify-content: center;
+  grid-row: 2;
+  grid-column: 2 / 4;
+  align-self: center;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
 }
 
 #setGridButton {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+#setGridButton:hover {
+  background-color: #b4b4b4;
+}
+
+#messageBox {
+  grid-row: 3;
+  grid-column: 1 / 5;
+  text-align: center;
+  font-size: 30px;
+  color: #ff412bcd;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  align-self: center;
+  background-color: #18181844;
+  padding: 10px 0px 10px 0px;
+  border-radius: 4px;
+}
+
+#gridInfo {
+  font-size: 30px;
+  color: #bebcbc;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  align-self: center;
+  margin: 150px auto;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
 }
