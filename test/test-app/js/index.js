@@ -1,13 +1,12 @@
 import { gridGenerator } from '../../../src/index.js'
 import { Measurements } from '../../../src/css-measurments.js'
-// const grid = {
-//   rows: ['1fr', '1fr', '1fr', '1fr', '1fr'],
-//   columns: ['1fr', '1fr'],
-//   rowGap: '20px',
-//   columnGap: '20px'
-// }
-
-// gridGenerator.setGrid(grid, '.parent')
+const grid = {
+  rows: ['1fr', '1fr', '1fr', '1fr', '1fr'],
+  columns: ['1fr', '1fr'],
+  rowGap: '20px',
+  columnGap: '20px'
+}
+console.log(gridGenerator.getCssTemplate(grid))
 // document.querySelector('#addRowButton').addEventListener('click', (event) => {
 //     event.preventDefault()
 //     const input = document.createElement('input')

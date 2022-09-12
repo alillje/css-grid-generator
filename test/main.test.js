@@ -1,15 +1,18 @@
 import { RowColumnValidator } from '../src/row-column-validator.js'
 import { GapValidator } from '../src/gap-validator.js'
-import { GridValidator } from '../src/grid-validator.js'
+import { GridGenerator } from '../src/grid-generator.js'
+// import { GridValidator } from '../src/grid-validator.js'
 
 const rowColumnValidator = new RowColumnValidator()
 const gapValidator = new GapValidator()
-const gridValidator = new GridValidator()
+const gridGenerator = new GridGenerator()
+// const gridValidator = new GridValidator()
 
 /* ============================== */
 /* == RowColumnValidator Tests == */
 /* ============================== */
 /* ============================== */
+
 describe('RowColumnValidator - Extract unit suffix from an input value', () => {
   test('Correct input value - px', () => {
     expect(
@@ -255,6 +258,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
 /* ===== GapValidator Tests ===== */
 /* ============================== */
 /* ============================== */
+
 describe('GapValidator - Validates gap parameters', () => {
   test('Correct parameter value', () => {
     expect(
@@ -292,7 +296,6 @@ describe('GapValidator - Validates gap parameters', () => {
     }
     expect(t1).toThrow(Error)
   })
-
 
   test('Incorrect parameter - Invalid css unit', () => {
     /**
@@ -341,6 +344,43 @@ describe('GapValidator - Validates gap parameters', () => {
 })
 
 /* ============================== */
-/* ==== GridValidator Tests ===== */
+/* ==== GridGenerator Tests ===== */
 /* ============================== */
 /* ============================== */
+describe('GridGenerator - Generate a CSS template based on input', () => {
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+    ).toBeDefined()
+  })
+
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['1fr, 1fr'], columns: ['1fr', '2fr', '1fr'] })
+    ).toBeDefined()
+  })
+
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['1rem, 1rem'], columns: ['1rem', '2rem', '1rem'], rowGap: '10px', columnGap: '10px' })
+    ).toBeDefined()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['100p, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+    ).toBeNull()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5', columnGap: '5px' })
+    ).toBeNull()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getCssTemplate({ rows: ['100, 100'], columns: ['abc', '354', '300'], rowGap: '5', columnGap: '5px' })
+    ).toBeNull()
+  })
+})

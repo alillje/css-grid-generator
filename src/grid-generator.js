@@ -31,21 +31,6 @@ export class GridGenerator {
    * @param {string} grid.columnGap - A string representing the grid-column-gap property.
    * @returns {string|null} - The CSS grid layout template, or if input contains errors, return null.
    */
-  // getCssTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
-  //   const error = this.#gridValidator.invalidParams(rows, columns, rowGap, columnGap)
-  //   if (!error) {
-  //     const grid = `.element {
-  // display: grid;
-  // grid-template-rows: ${rows.join(' ')};
-  // grid-template-columns: ${columns.join(' ')};
-  // grid-row-gap: ${rowGap};
-  // grid-column-gap: ${columnGap};
-  // }`
-  //     return grid
-  //   } else {
-  //     return error
-  //   }
-  // }
   getCssTemplate ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     try {
       this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
