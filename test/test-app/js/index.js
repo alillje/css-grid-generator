@@ -6,7 +6,7 @@ const grid = {
   rowGap: '20px',
   columnGap: '20px'
 }
-console.log(gridGenerator.getCssTemplate(grid))
+console.log(gridGenerator.getGridCss(grid))
 // document.querySelector('#addRowButton').addEventListener('click', (event) => {
 //     event.preventDefault()
 //     const input = document.createElement('input')
@@ -73,3 +73,10 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
     document.querySelector('.parent').appendChild(child)
   }
 })
+
+const test = document.createElement('div')
+test.setAttribute('class', 'testdiv')
+document.querySelector('.parent').appendChild(test)
+gridGenerator.setPostition({ startRow: 1, endRow: 2, startColumn: 3 }, '.testdiv')
+const positionCss = gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 3 })
+console.log(positionCss)

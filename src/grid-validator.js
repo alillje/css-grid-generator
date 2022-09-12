@@ -38,4 +38,21 @@ export class GridValidator {
     this.#gapValidator.validate(rowGap)
     this.#gapValidator.validate(columnGap)
   }
+
+  /**
+   * Validates input for positioning for a HTML element. Checks if input is a number, otherwise, it redfines value to undefined.
+   *
+   * @param {object} positions - An object containin all the position properties in a css grid.
+   * @returns {object} - Object containing CSS position values.
+   */
+  validatePositions (positions) {
+    const newPositions = Object.assign({}, positions)
+    // Check if any value is not a number
+    for (const [key, value] of Object.entries(newPositions)) {
+      if (isNaN(value)) {
+        newPositions[key] = undefined
+      }
+    }
+    return newPositions
+  }
 }
