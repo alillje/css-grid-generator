@@ -74,9 +74,21 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
   }
 })
 
-const test = document.createElement('div')
-test.setAttribute('class', 'testdiv')
-document.querySelector('.parent').appendChild(test)
-gridGenerator.setPostition({ startRow: 1, endRow: 2, startColumn: 3 }, '.testdiv')
-const positionCss = gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 3 })
-console.log(positionCss)
+// const test = document.createElement('div')
+// test.setAttribute('class', 'testdiv')
+// document.querySelector('.parent').appendChild(test)
+// gridGenerator.setPostition({ startRow: 1, endRow: 2, startColumn: 3 }, '.testdiv')
+// const positionCss = gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 3 })
+// console.log(positionCss)
+
+// // Sets the grid layou of <body>
+// gridGenerator.setGrid({ rows: ['100px', '100px', '100px', '100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' }, 'body')
+
+// // Sets the postion in the grid layou for element with id=myDiv
+// gridGenerator.setPostition({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 }, '#myDiv')
+
+// // Returns string representing the CSS code for grid layout
+// gridGenerator.getGridCss({ rows: ['100px', '100px', '100px', '100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+
+// // Returns string representing the CSS code for the grid positioning
+// gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
