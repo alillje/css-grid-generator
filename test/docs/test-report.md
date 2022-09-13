@@ -21,6 +21,19 @@
 
 ## Automatic Unit Testing
 
+## Automatic Unit Testing
+
+### Test suite 2
+- Date 13/9 2022
+- Version 1.1.0
+#### Notes
+- Tests have been reeimplemented as requriements has changed. After researche it was discovered that the css unit suffixes most commonly used for grid-layouts were `px`, `fr`& `%`. These are now the only allowed unit suffixes for the library. Tests were re-implemented accordingly. 
+
+Looking at the tests below, there is still a bug when trying to remove a unit suffix from input parameters.
+
+<img src="./img/test-suites/13sep22-1.png" width="400px"><br>
+<img src="./img/test-suites/13sep22-2.png" width="400px"><br>
+
 ### Test suite 1
 - Date 12/9 2022
 - Version 1.1.0
