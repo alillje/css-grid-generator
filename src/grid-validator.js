@@ -52,7 +52,6 @@ export class GridValidator {
         newPositions[key] = undefined
       }
     }
-    console.log(newPositions)
     if (!newPositions.startRow || !newPositions.startColumn) {
       throw new Error('Start values for row and column is mandatory')
     }

@@ -72,7 +72,9 @@ export class RowColumnValidator {
    */
   removeUnitSuffix (cssValue) {
     const unitSuffix = this.getUnitSuffix(cssValue)
-    return cssValue.replace(unitSuffix, '')
+    if (unitSuffix) {
+      return cssValue.replace(unitSuffix, '')
+    }
   }
 
   /**
