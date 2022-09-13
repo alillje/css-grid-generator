@@ -1,18 +1,5 @@
 import { gridGenerator } from '../../../src/index.js'
 import { Measurements } from '../../../src/css-measurments.js'
-const grid = {
-  rows: ['1fr', '1fr', '1fr', '1fr', '1fr'],
-  columns: ['1fr', '1fr'],
-  rowGap: '20px',
-  columnGap: '20px'
-}
-console.log(gridGenerator.getGridCss(grid))
-// document.querySelector('#addRowButton').addEventListener('click', (event) => {
-//     event.preventDefault()
-//     const input = document.createElement('input')
-//     input.setAttribute('type', 'text')
-//     document.querySelector('inputForm').appendChild(input)
-// })
 
 // Set unit options for rows
 for (const unit of Object.values(Measurements)) {
@@ -44,6 +31,7 @@ for (const unit of Object.values(Measurements)) {
   document.querySelector('#columnGapUnit').appendChild(option)
 }
 
+// Eventlistener for button to set grid from entered values
 document.querySelector('#setGridButton').addEventListener('click', (event) => {
   event.preventDefault()
   document.querySelector('#messageBox').textContent = ''
@@ -66,8 +54,7 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
     document.querySelector('.container').innerHTML = ''
 
     document.querySelector('#messageBox').classList.add('hidden')
-
-    // Set Grid for '.parent'
+    // Set Grid for '.container'
     gridGenerator.setGrid({ rows, columns, rowGap, columnGap }, '.container')
 
     // Add elements to parent to illustrate grid layout
@@ -100,4 +87,4 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
 
 // // Returns string representing the CSS code for the grid positioning
 // gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
-console.log(gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 }))
+// console.log(gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 }))
