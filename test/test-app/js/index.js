@@ -100,3 +100,4 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
 
 // // Returns string representing the CSS code for the grid positioning
 // gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
+console.log(gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 }))

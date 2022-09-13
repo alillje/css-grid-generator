@@ -15,7 +15,7 @@
 
 7. Grid columns must be passed in as a string.
 
-8. All grid rows, column and gap values must be in the form of an integer followed by a valid CSS unit measurement( example: `200px`, `1fr` etc. )
+8. All grid rows, column and gap values must be in the form of an integer followed by a valid CSS unit measurement( example: `200px`, `1fr` or `100%`. )
 
 
 ## Non-functional requriements
@@ -23,3 +23,4 @@
 
 2. The library should be written without any dependencies to other external libraries. 
 
+3. Valid CSS units for the library must be stated in the documentation.

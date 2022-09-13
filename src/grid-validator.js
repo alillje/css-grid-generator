@@ -47,11 +47,14 @@ export class GridValidator {
    */
   validatePositions (positions) {
     const newPositions = Object.assign({}, positions)
-    // Check if any value is not a number
     for (const [key, value] of Object.entries(newPositions)) {
       if (isNaN(value)) {
         newPositions[key] = undefined
       }
+    }
+    console.log(newPositions)
+    if (!newPositions.startRow || !newPositions.startColumn) {
+      throw new Error('Start values for row and column is mandatory')
     }
     return newPositions
   }

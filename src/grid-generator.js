@@ -58,22 +58,27 @@ export class GridGenerator {
    * @param {number} positions.endRow - A number representig a HTML elements column end position in a css grid layout.
    * @param {number} positions.startColumn - A number representig a HTML elements columns start position in a css grid layout.
    * @param {number} positions.endColumn - A number representig a HTML elements columns end position in a css grid layout.
-   * @returns {string} - The CSS grid-position template.
+   * @returns {string|null} - The CSS grid-position template, or if input contains errors, return null.
    */
   getPositionCss ({ startRow, endRow, startColumn, endColumn }) {
-    let positionTemplate = ''
-    const positions = {
-      startRow,
-      startColumn,
-      endRow,
-      endColumn
-    }
+    try {
+      let positionTemplate = ''
+      const positions = {
+        startRow,
+        startColumn,
+        endRow,
+        endColumn
+      }
 
-    const validatedPositions = this.#gridValidator.validatePositions(positions)
-    if (validatedPositions.startRow && validatedPositions.startColumn) {
-      positionTemplate = `grid-area: ${parseInt(validatedPositions.startRow)} / ${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)};`
+      const validatedPositions = this.#gridValidator.validatePositions(positions)
+      if (validatedPositions.startRow && validatedPositions.startColumn) {
+        positionTemplate = `grid-area: ${parseInt(validatedPositions.startRow)} / ${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)};`
+      }
+      return positionTemplate
+    } catch (e) {
+      console.error(e)
+      return null
     }
-    return positionTemplate
   }
 
   /**
@@ -88,13 +93,17 @@ export class GridGenerator {
    */
   setGrid ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }, element) {
     // Check if parameters are valid and that a string represeting an HTML element is defined.
-    this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
-    if (element) {
-      document.querySelector(element).style.display = 'grid'
-      document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
-      document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`
-      document.querySelector(element).style.gridRowGap = `${rowGap}`
-      document.querySelector(element).style.gridColumnGap = `${columnGap}`
+    try {
+      this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
+      if (element) {
+        document.querySelector(element).style.display = 'grid'
+        document.querySelector(element).style.gridTemplateRows = `${rows.join(' ')}`
+        document.querySelector(element).style.gridTemplateColumns = `${columns.join(' ')}`
+        document.querySelector(element).style.gridRowGap = `${rowGap}`
+        document.querySelector(element).style.gridColumnGap = `${columnGap}`
+      }
+    } catch (e) {
+      console.error(e)
     }
   }
 
@@ -111,23 +120,20 @@ export class GridGenerator {
    * @param {string} element - The DOM element to manipulate.
    */
   setPostition ({ startRow, endRow, startColumn, endColumn }, element) {
-    const positions = {
-      startRow,
-      startColumn,
-      endRow,
-      endColumn
-    }
-
-    const validatedPositions = this.#gridValidator.validatePositions(positions)
-    // Check if any value is not a number
-    // for (const [key, value] of Object.entries(positions)) {
-    //   if (isNaN(value)) {
-    //     positions[key] = undefined
-    //   }
-    // }
-    if (validatedPositions.startRow && validatedPositions.startColumn) {
-      document.querySelector(element).style.gridRow = `${parseInt(validatedPositions.startRow)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)}`
-      document.querySelector(element).style.gridColumn = `${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)}`
+    try {
+      const positions = {
+        startRow,
+        startColumn,
+        endRow,
+        endColumn
+      }
+      const validatedPositions = this.#gridValidator.validatePositions(positions)
+      if (validatedPositions.startRow && validatedPositions.startColumn) {
+        document.querySelector(element).style.gridRow = `${parseInt(validatedPositions.startRow)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)}`
+        document.querySelector(element).style.gridColumn = `${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)}`
+      }
+    } catch (e) {
+      console.error(e)
     }
   }
 }

@@ -14,109 +14,120 @@ const gridGenerator = new GridGenerator()
 /* ============================== */
 
 describe('RowColumnValidator - Extract unit suffix from an input value', () => {
-  test('Correct input value - px', () => {
+  test('Correct unit suffix - px', () => {
     expect(
       rowColumnValidator.getUnitSuffix('200px')
     ).toBe('px')
   })
-  test('Correct input value - fr', () => {
+  test('Correct unit suffix - px', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('5px')
+    ).toBe('px')
+  })
+  test('Correct unit suffix - px', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('4319px')
+    ).toBe('px')
+  })
+  test('Correct unit suffix - fr', () => {
     expect(
       rowColumnValidator.getUnitSuffix('1fr')
     ).toBe('fr')
   })
-  test('Correct input value - cm', () => {
+  test('Correct unit suffix - fr', () => {
     expect(
-      rowColumnValidator.getUnitSuffix('1000cm')
-    ).toBe('cm')
+      rowColumnValidator.getUnitSuffix('2fr')
+    ).toBe('fr')
   })
-  test('Correct input value - pc', () => {
+  test('Correct unit suffix - fr', () => {
     expect(
-      rowColumnValidator.getUnitSuffix('1000pc')
-    ).toBe('pc')
+      rowColumnValidator.getUnitSuffix('30fr')
+    ).toBe('fr')
   })
-
-  test('Correct input value - mm', () => {
+  test('Correct unit suffix - %', () => {
     expect(
-      rowColumnValidator.getUnitSuffix('10mm')
-    ).toBe('mm')
+      rowColumnValidator.getUnitSuffix('100%')
+    ).toBe('%')
   })
-
-  test('Correct input value - in', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('178in')
-    ).toBe('in')
-  })
-
-  test('Correct input value - pt', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('1378pt')
-    ).toBe('pt')
-  })
-
-  test('Correct input value - em', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('13em')
-    ).toBe('em')
-  })
-
-  test('Correct input value - ex', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('113ex')
-    ).toBe('ex')
-  })
-
-  test('Correct input value - ch', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('7ch')
-    ).toBe('ch')
-  })
-
-  test('Correct input value - rem', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('7rem')
-    ).toBe('rem')
-  })
-
-  test('Correct input value - vw', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('5vw')
-    ).toBe('vw')
-  })
-
-  test('Correct input value - vmin', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('627vmin')
-    ).toBe('vmin')
-  })
-
-  test('Correct input value - vmax', () => {
-    expect(
-      rowColumnValidator.getUnitSuffix('63vmax')
-    ).toBe('vmax')
-  })
-
-  test('Correct input value - %', () => {
+  test('Correct unit suffix - %', () => {
     expect(
       rowColumnValidator.getUnitSuffix('83%')
     ).toBe('%')
   })
+  test('Correct unit suffix - %', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('2%')
+    ).toBe('%')
+  })
+  test('Incorrect unit suffix', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('2x')
+    ).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('20rem')
+    ).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('1cm')
+    ).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('500')
+    ).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(
+      rowColumnValidator.getUnitSuffix('500.75')
+    ).toBe(undefined)
+  })
 })
 
 describe('RowColumnValidator - Removes unit suffix from string and returns extracted number', () => {
-  test('Correct input - px', () => {
+  test('Correct unit suffix - px', () => {
     expect(rowColumnValidator.removeUnitSuffix('200px')).toBe('200')
   })
-  test('Correct input - vh', () => {
-    expect(rowColumnValidator.removeUnitSuffix('30vh')).toBe('30')
+  test('Correct unit suffix - px', () => {
+    expect(rowColumnValidator.removeUnitSuffix('25px')).toBe('25')
   })
-  test('Correct input - em', () => {
-    expect(rowColumnValidator.removeUnitSuffix('2em')).toBe('2')
+  test('Correct unit suffix - px', () => {
+    expect(rowColumnValidator.removeUnitSuffix('3px')).toBe('3')
   })
-  test('Correct input - pc', () => {
-    expect(rowColumnValidator.removeUnitSuffix('4000pc')).toBe('4000')
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.removeUnitSuffix('1fr')).toBe('1')
   })
-  test('Correct input - rem', () => {
-    expect(rowColumnValidator.removeUnitSuffix('70rem')).toBe('70')
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.removeUnitSuffix('20fr')).toBe('20')
+  })
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.removeUnitSuffix('353fr')).toBe('353')
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.removeUnitSuffix('100%')).toBe('100')
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.removeUnitSuffix('43%')).toBe('43')
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.removeUnitSuffix('2%')).toBe('2')
+  })
+  test('Incorrect unit suffix', () => {
+    expect(rowColumnValidator.removeUnitSuffix('2')).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(rowColumnValidator.removeUnitSuffix('1000')).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(rowColumnValidator.removeUnitSuffix('aByO')).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(rowColumnValidator.removeUnitSuffix('200rem')).toBe(undefined)
+  })
+  test('Incorrect unit suffix', () => {
+    expect(rowColumnValidator.removeUnitSuffix('200em')).toBe(undefined)
   })
 })
 
@@ -124,19 +135,30 @@ describe('RowColumnValidator - Input is parseable number', () => {
   test('Correct input - px', () => {
     expect(rowColumnValidator.isNumber('200px')).toBe(true)
   })
-  test('Correct input - vh', () => {
-    expect(rowColumnValidator.isNumber('30vh')).toBe(true)
+  test('Correct input - px', () => {
+    expect(rowColumnValidator.isNumber('30px')).toBe(true)
   })
-  test('Correct input - em', () => {
-    expect(rowColumnValidator.isNumber('2em')).toBe(true)
+  test('Correct input - px', () => {
+    expect(rowColumnValidator.isNumber('1px')).toBe(true)
   })
-  test('Correct input - pc', () => {
-    expect(rowColumnValidator.isNumber('4000pc')).toBe(true)
+  test('Correct input - fr', () => {
+    expect(rowColumnValidator.isNumber('400fr')).toBe(true)
   })
-  test('Correct input - rem', () => {
-    expect(rowColumnValidator.isNumber('70rem')).toBe(true)
+  test('Correct input - fr', () => {
+    expect(rowColumnValidator.isNumber('30fr')).toBe(true)
   })
-
+  test('Correct input - fr', () => {
+    expect(rowColumnValidator.isNumber('1fr')).toBe(true)
+  })
+  test('Correct input - %', () => {
+    expect(rowColumnValidator.isNumber('100%')).toBe(true)
+  })
+  test('Correct input - %', () => {
+    expect(rowColumnValidator.isNumber('82%')).toBe(true)
+  })
+  test('Correct input - %', () => {
+    expect(rowColumnValidator.isNumber('3%')).toBe(true)
+  })
   test('Incorrect input', () => {
     expect(rowColumnValidator.isNumber('abcdef')).toBe(false)
   })
@@ -155,19 +177,33 @@ describe('RowColumnValidator - Input is parseable number', () => {
 })
 
 describe('RowColumnValidator - Has valid CSS measurement suffix', () => {
-  test('Correct input', () => {
+  test('Correct unit suffix - px', () => {
     expect(rowColumnValidator.hasCorrectSuffix('200px')).toBe(true)
   })
-  test('Correct input', () => {
-    expect(rowColumnValidator.hasCorrectSuffix('200vh')).toBe(true)
+  test('Correct unit suffix - px', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('30px')).toBe(true)
   })
-  test('Correct input', () => {
-    expect(rowColumnValidator.hasCorrectSuffix('200rem')).toBe(true)
+  test('Correct unit suffix - px', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('4px')).toBe(true)
   })
-  test('Correct input', () => {
-    expect(rowColumnValidator.hasCorrectSuffix('200vmax')).toBe(true)
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('555fr')).toBe(true)
   })
-
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('47fr')).toBe(true)
+  })
+  test('Correct unit suffix - fr', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('3fr')).toBe(true)
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('100%')).toBe(true)
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('33%')).toBe(true)
+  })
+  test('Correct unit suffix - %', () => {
+    expect(rowColumnValidator.hasCorrectSuffix('6%')).toBe(true)
+  })
   test('Incorrect input', () => {
     expect(rowColumnValidator.hasCorrectSuffix('200p')).toBe(false)
   })
@@ -350,37 +386,75 @@ describe('GapValidator - Validates gap parameters', () => {
 describe('GridGenerator - Generate a CSS template based on input', () => {
   test('Correct parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+      gridGenerator.getGridCss({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
     ).toBeDefined()
   })
 
   test('Correct parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['1fr, 1fr'], columns: ['1fr', '2fr', '1fr'] })
+      gridGenerator.getGridCss({ rows: ['1fr, 1fr'], columns: ['1fr', '2fr', '1fr'] })
     ).toBeDefined()
   })
 
   test('Correct parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['1rem, 1rem'], columns: ['1rem', '2rem', '1rem'], rowGap: '10px', columnGap: '10px' })
+      gridGenerator.getGridCss({ rows: ['1rem, 1rem'], columns: ['1rem', '2rem', '1rem'], rowGap: '10px', columnGap: '10px' })
     ).toBeDefined()
   })
 
   test('Incorrect parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['100p, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+      gridGenerator.getGridCss({ rows: ['100p, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
     ).toBeNull()
   })
 
   test('Incorrect parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5', columnGap: '5px' })
+      gridGenerator.getGridCss({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5', columnGap: '5px' })
     ).toBeNull()
   })
 
   test('Incorrect parameter value', () => {
     expect(
-      gridGenerator.getCssTemplate({ rows: ['100, 100'], columns: ['abc', '354', '300'], rowGap: '5', columnGap: '5px' })
+      gridGenerator.getGridCss({ rows: ['100, 100'], columns: ['abc', '354', '300'], rowGap: '5', columnGap: '5px' })
+    ).toBeNull()
+  })
+})
+
+describe('GridGenerator - Generate a CSS position template based on input', () => {
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+    ).toBeDefined()
+  })
+
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['1fr, 1fr'], columns: ['1fr', '2fr', '1fr'] })
+    ).toBeDefined()
+  })
+
+  test('Correct parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['1rem, 1rem'], columns: ['1rem', '2rem', '1rem'], rowGap: '10px', columnGap: '10px' })
+    ).toBeDefined()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['100p, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' })
+    ).toBeNull()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['100px, 100px'], columns: ['100px', '100px', '100px'], rowGap: '5', columnGap: '5px' })
+    ).toBeNull()
+  })
+
+  test('Incorrect parameter value', () => {
+    expect(
+      gridGenerator.getPositionCss({ rows: ['100, 100'], columns: ['abc', '354', '300'], rowGap: '5', columnGap: '5px' })
     ).toBeNull()
   })
 })
