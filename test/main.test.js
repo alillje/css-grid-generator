@@ -1,12 +1,17 @@
 import { RowColumnValidator } from '../src/row-column-validator.js'
 import { GapValidator } from '../src/gap-validator.js'
 import { GridGenerator } from '../src/grid-generator.js'
-// import { GridValidator } from '../src/grid-validator.js'
+import { GridValidator } from '../src/grid-validator.js'
 
 const rowColumnValidator = new RowColumnValidator()
 const gapValidator = new GapValidator()
 const gridGenerator = new GridGenerator()
-// const gridValidator = new GridValidator()
+const gridValidator = new GridValidator()
+
+// MISSING UNIT TEST FOR:
+// GridValidator.validateParams()
+// ----------
+// GridGenerator.setGrid() && GridGenerator.setPosition(), tested manually with testApp
 
 /* ============================== */
 /* == RowColumnValidator Tests == */
@@ -456,5 +461,81 @@ describe('GridGenerator - Generate a CSS position template based on input', () =
     expect(
       gridGenerator.getPositionCss({ rows: ['100, 100'], columns: ['abc', '354', '300'], rowGap: '5', columnGap: '5px' })
     ).toBeNull()
+  })
+})
+
+/* ============================== */
+/* ==== GridGenerator Tests ===== */
+/* ============================== */
+/* ============================== */
+describe('GridValidator - Validate position values when positioning an element in a grid layout', () => {
+  test('Valid position values - All start and end parameters', () => {
+    expect(
+      gridValidator.validatePositions({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
+    ).toStrictEqual({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
+  })
+
+  test('Valid position values - endRow value undefined', () => {
+    expect(
+      gridValidator.validatePositions({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: 4 })
+    ).toStrictEqual({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: 4 })
+  })
+
+  test('Valid position values - endRow & endColumn value undefined', () => {
+    expect(
+      gridValidator.validatePositions({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: undefined })
+    ).toStrictEqual({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: undefined })
+  })
+
+  test('Valid position values - endRow value not a number', () => {
+    expect(
+      gridValidator.validatePositions({ startRow: 1, endRow: 'test', startColumn: 1, endColumn: 7 })
+    ).toStrictEqual({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: 7 })
+  })
+
+  test('Valid position values - endRow & endColumn value not a number', () => {
+    expect(
+      gridValidator.validatePositions({ startRow: 1, endRow: 'test', startColumn: 1, endColumn: 'test2' })
+    ).toStrictEqual({ startRow: 1, endRow: undefined, startColumn: 1, endColumn: undefined })
+  })
+
+  test('Invalid position values - startRow undefined', () => {
+    /**
+     * Wrapping function requried to test throws.
+     */
+    const t1 = () => {
+      gridValidator.validatePositions({ startRow: undefined, endRow: 4, startColumn: 1, endColumn: 5 })
+    }
+    expect(t1).toThrow(Error)
+  })
+
+  test('Invalid position values - startColumn undefined', () => {
+    /**
+     * Wrapping function requried to test throws.
+     */
+    const t1 = () => {
+      gridValidator.validatePositions({ startRow: 1, endRow: 4, startColumn: undefined, endColumn: 5 })
+    }
+    expect(t1).toThrow(Error)
+  })
+
+  test('Invalid position values - startRow not a number', () => {
+    /**
+     * Wrapping function requried to test throws.
+     */
+    const t1 = () => {
+      gridValidator.validatePositions({ startRow: 'test', endRow: 4, startColumn: 1, endColumn: 5 })
+    }
+    expect(t1).toThrow(Error)
+  })
+
+  test('Invalid position values - startColumn not a number', () => {
+    /**
+     * Wrapping function requried to test throws.
+     */
+    const t1 = () => {
+      gridValidator.validatePositions({ startRow: 1, endRow: 4, startColumn: true, endColumn: 5 })
+    }
+    expect(t1).toThrow(Error)
   })
 })

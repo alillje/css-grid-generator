@@ -48,7 +48,7 @@ export class GridValidator {
   validatePositions (positions) {
     const newPositions = Object.assign({}, positions)
     for (const [key, value] of Object.entries(newPositions)) {
-      if (isNaN(value)) {
+      if (isNaN(value) || !value || typeof value === 'boolean') {
         newPositions[key] = undefined
       }
     }
