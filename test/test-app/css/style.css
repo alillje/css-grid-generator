@@ -25,12 +25,6 @@ body {
 .childDiv {
     background-color: rgba(236, 62, 218, 0.146);
   }
-.parent {
-  height: 100%;
-  background-color: #ababab;
-}
-
-
 
 .children {
   background-color: rgba(236, 62, 218, 0.146);

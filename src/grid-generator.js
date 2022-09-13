@@ -8,7 +8,7 @@
 import { GridValidator } from './grid-validator.js'
 
 /**
- * Creates a string representing a CSS grid layout.
+ * Responsible for generating grid template layouts and setting style properties for DOM elements.
  *
  * @class
  */
@@ -34,13 +34,7 @@ export class GridGenerator {
   getGridCss ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     try {
       this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
-      const grid = `.element { 
-  display: grid;
-  grid-template-rows: ${rows.join(' ')};
-  grid-template-columns: ${columns.join(' ')};
-  grid-row-gap: ${rowGap};
-  grid-column-gap: ${columnGap};
-  }`
+      const grid = `.element { \n  display: grid;\n  grid-template-rows: ${rows.join(' ')};\n  grid-template-columns: ${columns.join(' ')};\n  grid-row-gap: ${rowGap};\n  grid-column-gap: ${columnGap};\n}`
       return grid
     } catch (e) {
       console.error(e)

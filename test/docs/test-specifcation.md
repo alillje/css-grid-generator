@@ -4,7 +4,7 @@
 Requirements are defined in `./test/docs.requriements.md`
 
 ## *Automatic Unit tests*
-Automatic unit tests are defined in `./test/main.test.js`
+Automatic unit tests are defined in `./test/index.test.js`
 
 The automatic unit test, tests the following requriements: <br>
 - 1 <br>
@@ -16,13 +16,13 @@ The automatic unit test, tests the following requriements: <br>
 
 ## *Manual tests*
 
-Manual testing will be performed using the test application, located in the tests-folder. 
-* Prerequisites
+Manual testing will be performed using the test application, located in the tests-folder. <br>
+ ### *Prerequisites*
 - Open the browsers web inspector and view elements, this should look something like this: <br>
 <br>
 <img src="./img/web-inspector-example.png" width="400px"><br>
 
-The requriement tested is presented along with each test case.
+*Note: The requriement tested is presented along with each test case.*
 
 ### TC1 Setting a grid with a gap
 - (Requrements 2, 3)
