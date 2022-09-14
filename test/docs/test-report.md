@@ -2,9 +2,27 @@
 
 ## Manual testing
 
+### Test suite 2
+- Date 14/9 2022
+- version 1.2.0
+
+| Test      |  |
+| --------- |:----:|
+| TC1.1     | OK |
+| TC1.2     | OK |
+| TC1.3     | OK |
+| COVERAGE & SUCCESS   | 3/3 OK 
+
+| Test      |  |
+| --------- |:----:|
+| TC2.1     | OK |
+| TC2.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+
 ### Test suite 1
 - Date 13/9 2022
-- version 1.2.0
+- version 1.1.2
 
 | Test      |  |
 | --------- |:----:|

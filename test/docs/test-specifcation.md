@@ -24,6 +24,7 @@ Manual testing will be performed using the test application, located in the test
 
 *Note: The requriement tested is presented along with each test case.*
 
+// TODO: Write new test cases based on updated test-app
 ### TC1 Setting a grid with a gap
 - (Requrements 2, 3)
 
