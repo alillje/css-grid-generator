@@ -41,7 +41,7 @@ export class GridGenerator {
   getGridCss ({ rows = ['100%'], columns = ['100%'], rowGap = '0px', columnGap = '0px' }) {
     try {
       this.#gridValidator.validateParams(rows, columns, rowGap, columnGap)
-      const grid = `.element { \n  display: grid;\n  grid-template-rows: ${rows.join(' ')};\n  grid-template-columns: ${columns.join(' ')};\n  grid-row-gap: ${rowGap};\n  grid-column-gap: ${columnGap};\n}`
+      const grid = `{ \n  display: grid;\n  grid-template-rows: ${rows.join(' ')};\n  grid-template-columns: ${columns.join(' ')};\n  grid-row-gap: ${rowGap};\n  grid-column-gap: ${columnGap};\n}`
       return grid
     } catch (e) {
       console.error(e)
@@ -73,7 +73,7 @@ export class GridGenerator {
 
       const validatedPositions = this.#gridValidator.validatePositions(positions)
       if (validatedPositions.startRow && validatedPositions.startColumn) {
-        positionTemplate = `grid-area: ${parseInt(validatedPositions.startRow)} / ${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)};`
+        positionTemplate = `{ grid-area: ${parseInt(validatedPositions.startRow)} / ${parseInt(validatedPositions.startColumn)} / ${!validatedPositions.endRow ? parseInt(validatedPositions.startRow) : parseInt(validatedPositions.endRow)} / ${!validatedPositions.endColumn ? parseInt(validatedPositions.startColumn) : parseInt(validatedPositions.endColumn)}; }`
       }
       return positionTemplate
     } catch (e) {
@@ -124,6 +124,7 @@ export class GridGenerator {
    */
   setPostition ({ startRow, endRow, startColumn, endColumn }, element) {
     try {
+      console.log(element)
       const positions = {
         startRow,
         startColumn,

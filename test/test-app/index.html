@@ -12,43 +12,33 @@
 </head>
 
 <body>
-    <div class="inputFormContainer">
-        <div class="rowContainer">
+    <div id="childrenCss"></div>
+    <div id="parentCss"></div>
+    <div id="inputFormContainer">
+        <div id="rowContainer">
             <label for="numberOfRows">Enter number of rows</label>
             <input type="text" id="numberOfRows">
-            <label for="numberOfRows">Enter height of rows</label>
-            <input type="text" id="heightOfRows">
-            <label for="rowUnit">Choose unit</label>
-            <select id="rowUnit"></select>
+            <div class="numberOfRowsButtonWrapper">
+                <button id="numberOfRowsButton">Set rows</button>
+            </div>
         </div>
-        <div class="rowGapContainer">
-            <label for="rowGap">Enter row gap</label>
-            <input type="text" id="rowGap">
-            <label for="rowGapUnit">Choose unit</label>
-            <select id="rowGapUnit"></select>
-        </div>
-        <div class="columnContainer">
+
+        <div id="columnContainer">
             <label for="numberOfColumns">Enter number of columns</label>
             <input type="text" id="numberOfColumns">
-            <label for="heightOfColumns">Enter width of columns</label>
-            <input type="text" id="widthOfColumns">
-            <label for="columnUnit">Choose unit</label>
-            <select id="columnUnit"></select>
-        </div>
-        <div class="columnGapContainer">
-            <label for="columnGap">Enter column gap</label>
-            <input type="text" id="columnGap">
-            <label for="columnGapUnit">Choose unit</label>
-            <select id="columnGapUnit"></select>
+            <div class="numberOfColumnsButtonWrapper">
+                <button id="numberOfColumnsButton">Set columns</button>
+            </div>
+
+
         </div>
         <div id="buttonContainer">
-            <button id="setGridButton">Set grid layout</button>
+            <button id="setGridButton" class="hidden">Set grid layout</button>
+        </div>
         </div>
         <div id="messageBox" class="hidden"></div>
-    </div>
-    <div class="container">
-    <div id="gridInfo">ENTER VALUES TO DISPLAY GRID</div>
-</div>
+
+        <div id="gridContainer"></div>
 </body>
 
 </html>

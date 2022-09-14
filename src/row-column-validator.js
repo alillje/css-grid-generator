@@ -25,7 +25,7 @@ export class RowColumnValidator {
         if (!this.isString(columnOrRow)) {
           throw new Error('Input must be a string')
         } else if (!this.hasCorrectSuffix(columnOrRow)) {
-          throw new Error('Input must end with a valid CSS measurement (px, fr, %')
+          throw new Error('Input must end with a valid CSS measurement (px, fr, %)')
         } else if (!this.isNumber(columnOrRow)) {
           throw new Error('Row and column values must be numbers followed by a CSS unit prefix')
         }
