@@ -6,6 +6,7 @@
  */
 
 import { Measurements } from './css-measurments.js'
+import { CssSizingKeywords } from './css-sizing-keywords.js'
 
 /**
  * Validates input values for css grid rows or columns.
@@ -24,9 +25,9 @@ export class RowColumnValidator {
       for (const columnOrRow of columnsOrRows) {
         if (!this.isString(columnOrRow)) {
           throw new Error('Input must be a string')
-        } else if (!this.hasCorrectSuffix(columnOrRow)) {
-          throw new Error('Input must end with a valid CSS measurement (px, fr, %)')
-        } else if (!this.isNumber(columnOrRow)) {
+        } else if (!this.hasCorrectSuffix(columnOrRow) && !this.isSizingKeyword(columnOrRow)) {
+          throw new Error('Input must end with a valid CSS measurement (px, fr, %) or a css sizing keyword')
+        } else if (!this.isSizingKeyword(columnOrRow) && !this.isNumber(columnOrRow)) {
           throw new Error('Row and column values must be numbers followed by a CSS unit prefix')
         }
       }
@@ -43,6 +44,47 @@ export class RowColumnValidator {
    */
   hasCorrectSuffix (cssValue) {
     if (Object.values(Measurements).some(unit => cssValue.endsWith(unit))) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  /**
+   * Takes a string representing a css value and removes the unit suffix if any.
+   *
+   * @param {string} cssValue - The string to extract the suffix from.
+   * @returns {string} - The string with the CSS unit suffix removed.
+   */
+  removeUnitSuffix (cssValue) {
+    const unitSuffix = this.getUnitSuffix(cssValue)
+    if (unitSuffix) {
+      return cssValue.replace(unitSuffix, '')
+    }
+  }
+
+  /**
+   * Takes a string representing a css value and returns the unit suffix if any.
+   *
+   * @param {string} cssValue - The string to extract the suffix from.
+   * @returns {string} - The CSS unit suffix.
+   */
+  getUnitSuffix (cssValue) {
+    for (const unit of Object.values(Measurements)) {
+      if (cssValue.endsWith(unit)) {
+        return unit
+      }
+    }
+  }
+
+  /**
+   * Checks if a CSS value has the value of a valid css sizing keyword.
+   *
+   * @param {string} cssValue - The css value to validate.
+   * @returns {boolean} - true if column or row is a valid css sizing keyword, otherwie efalse.
+   */
+  isSizingKeyword (cssValue) {
+    if (Object.values(CssSizingKeywords).some(keyword => cssValue.endsWith(keyword))) {
       return true
     } else {
       return false
@@ -89,33 +131,6 @@ export class RowColumnValidator {
       return false
     } else {
       return true
-    }
-  }
-
-  /**
-   * Takes a string representing a css value and removes the unit suffix if any.
-   *
-   * @param {string} cssValue - The string to extract the suffix from.
-   * @returns {string} - The string with the CSS unit suffix removed.
-   */
-  removeUnitSuffix (cssValue) {
-    const unitSuffix = this.getUnitSuffix(cssValue)
-    if (unitSuffix) {
-      return cssValue.replace(unitSuffix, '')
-    }
-  }
-
-  /**
-   * Takes a string representing a css value and returns the unit suffix if any.
-   *
-   * @param {string} cssValue - The string to extract the suffix from.
-   * @returns {string} - The CSS unit suffix.
-   */
-  getUnitSuffix (cssValue) {
-    for (const unit of Object.values(Measurements)) {
-      if (cssValue.endsWith(unit)) {
-        return unit
-      }
     }
   }
 }
