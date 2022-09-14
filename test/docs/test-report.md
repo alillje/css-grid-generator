@@ -4,7 +4,7 @@
 
 ### Test suite 1
 - Date 13/9 2022
-- version 1.1.2
+- version 1.2.0
 
 | Test      |  |
 | --------- |:----:|
@@ -20,6 +20,18 @@
 | COVERAGE & SUCCESS   | 2/2 OK 
 
 ## Automatic Unit Testing
+
+### Test suite 3
+- Date 13/9 2022
+- version 1.2.0
+#### Notes
+- Added 4 additional mehtods to the the public interface and integrated unit test.
+Ran test suite with PASS.
+
+<img src="./img/test-suites/14sep22-1.png" width="400px"><br>
+<img src="./img/test-suites/14sep22-2.png" width="400px"><br>
+<img src="./img/test-suites/14sep22-3.png" width="400px"><br>
+
 
 ### Test suite 3
 - Date 13/9 2022

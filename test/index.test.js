@@ -463,9 +463,89 @@ describe('GridGenerator - Generate a CSS position template based on input', () =
     ).toBeNull()
   })
 })
+describe('GridGenerator - Validate input when setting a row value for an element', () => {
+  test('Setting rows with suffix px', () => {
+    expect(
+      gridGenerator.setRows(['200px, 200px, 200px'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting rows with suffix fr', () => {
+    expect(
+      gridGenerator.setRows(['1fr, 1fr, 1f'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting rows with suffix %', () => {
+    expect(
+      gridGenerator.setRows(['20%, 60%'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting rows with mixed suffixes', () => {
+    expect(
+      gridGenerator.setRows(['20%, 1fr, 200px'], 'mockElement')
+    ).toBe(undefined)
+  })
+})
+describe('GridGenerator - Validate input when setting a column value for an element', () => {
+  test('Setting columns with suffix px', () => {
+    expect(
+      gridGenerator.setColumns(['200px, 200px, 200px'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix fr', () => {
+    expect(
+      gridGenerator.setColumns(['1fr, 1fr, 1f'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix %', () => {
+    expect(
+      gridGenerator.setColumns(['100%'], 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with mixed suffixes', () => {
+    expect(
+      gridGenerator.setRows(['20%, 1fr, 200px'], 'mockElement')
+    ).toBe(undefined)
+  })
+})
+
+describe('GridGenerator - Validate input when setting a row gap value for an element', () => {
+  test('Setting columns with suffix px', () => {
+    expect(
+      gridGenerator.setRowGap('5px', 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix fr', () => {
+    expect(
+      gridGenerator.setRowGap('1fr', 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix %', () => {
+    expect(
+      gridGenerator.setRowGap('2%', 'mockElement')
+    ).toBe(undefined)
+  })
+})
+
+describe('GridGenerator - Validate input when setting a columns gap value for an element', () => {
+  test('Setting columns with suffix px', () => {
+    expect(
+      gridGenerator.setColumnGap('5px', 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix fr', () => {
+    expect(
+      gridGenerator.setColumnGap('1fr', 'mockElement')
+    ).toBe(undefined)
+  })
+  test('Setting columns with suffix %', () => {
+    expect(
+      gridGenerator.setColumnGap('2%', 'mockElement')
+    ).toBe(undefined)
+  })
+})
 
 /* ============================== */
-/* ==== GridGenerator Tests ===== */
+/* ==== GridValidator Tests ===== */
 /* ============================== */
 /* ============================== */
 describe('GridValidator - Validate position values when positioning an element in a grid layout', () => {
@@ -537,5 +617,46 @@ describe('GridValidator - Validate position values when positioning an element i
       gridValidator.validatePositions({ startRow: 1, endRow: 4, startColumn: true, endColumn: 5 })
     }
     expect(t1).toThrow(Error)
+  })
+
+  describe('GridValidator - Validates if a html identifier is a string', () => {
+    test('Valid input string', () => {
+      expect(
+        gridValidator.isString('testElement')
+      ).toBe(true)
+    })
+    test('Valid input string', () => {
+      expect(
+        gridValidator.isString('mockElement')
+      ).toBe(true)
+    })
+
+    test('Invalid input - not a string', () => {
+      /**
+       * Wrapping function requried to test throws.
+       */
+      const t1 = () => {
+        gridValidator.validatePositions(true)
+      }
+      expect(t1).toThrow(Error)
+    })
+    test('Invalid input - not a string', () => {
+      /**
+       * Wrapping function requried to test throws.
+       */
+      const t1 = () => {
+        gridValidator.validatePositions(2)
+      }
+      expect(t1).toThrow(Error)
+    })
+    test('Invalid input - not a string', () => {
+      /**
+       * Wrapping function requried to test throws.
+       */
+      const t1 = () => {
+        gridValidator.validatePositions(['200', 'test'])
+      }
+      expect(t1).toThrow(Error)
+    })
   })
 })

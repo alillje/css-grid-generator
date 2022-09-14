@@ -2,7 +2,7 @@
  * Module for class GridGapValidator.
  *
  * @author Andreas Lillje
- * version 1.1.2
+ * version 1.2.0
  */
 
 import { RowColumnValidator } from './row-column-validator.js'
@@ -21,9 +21,9 @@ export class GapValidator extends RowColumnValidator {
    */
   validate (gap) {
     if (typeof gap !== 'string') {
-      throw new Error('Input must be a string')
+      throw new Error('Gap value must be a string')
     } else if (!this.hasCorrectSuffix(gap)) {
-      throw new Error('Input must end with a valid CSS measurement')
+      throw new Error('Gap value must end with a valid CSS measurement')
     } else if (!this.isNumber(gap)) {
       throw new Error('Gap values must be numbers')
     }

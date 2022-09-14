@@ -2,7 +2,7 @@
  * Module for class RowColumnValidator.
  *
  * @author Andreas Lillje
- * version 1.1.2
+ * version 1.2.0
  */
 
 import { Measurements } from './css-measurments.js'
@@ -20,9 +20,9 @@ export class RowColumnValidator {
    * @throws {(Error)} - If any invalid parameters are passed.
    */
   validate (columnsOrRows) {
-    if (Array.isArray(columnsOrRows)) {
+    if (this.isArray(columnsOrRows)) {
       for (const columnOrRow of columnsOrRows) {
-        if (typeof columnOrRow !== 'string') {
+        if (!this.isString(columnOrRow)) {
           throw new Error('Input must be a string')
         } else if (!this.hasCorrectSuffix(columnOrRow)) {
           throw new Error('Input must end with a valid CSS measurement (px, fr, %')
@@ -62,6 +62,34 @@ export class RowColumnValidator {
       isNumber = false
     }
     return isNumber
+  }
+
+  /**
+   * Checks if the given argument is an array.
+   *
+   * @param {Array} rowsOrColumns - The array to validate.
+   * @returns {boolean} - True if argument is an array, otherwise false.
+   */
+  isArray (rowsOrColumns) {
+    if (!Array.isArray(rowsOrColumns)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  /**
+   * Checks if the given argument is a string.
+   *
+   * @param {Array} htmlElement - The string to validate.
+   * @returns {boolean} - True if argument is a string, otherwise false.
+   */
+  isString (htmlElement) {
+    if (typeof htmlElement !== 'string') {
+      return false
+    } else {
+      return true
+    }
   }
 
   /**

@@ -83,7 +83,15 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
 // gridGenerator.setPostition({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 }, '#myDiv')
 
 // // Returns string representing the CSS code for grid layout
-console.log(gridGenerator.getGridCss({ rows: ['100px', '100px', '100px', '100px'], columns: ['100px', '100px', '100px'], rowGap: '5px', columnGap: '5px' }))
+gridGenerator.setGrid({ rows: ['200px', '200px'], columns: ['200px', '200px'], rowGap: '5px', columnGap: '5px' }, '.container')
+
+gridGenerator.setColumns(['1fr', '1fr'], '.container')
+
+gridGenerator.setRows(['1fr'], '.container')
+
+gridGenerator.setColumnGap('10px', '.container')
+
+gridGenerator.setRowGap('30px', '.container')
 
 // // Returns string representing the CSS code for the grid positioning
 // gridGenerator.getPositionCss({ startRow: 1, endRow: 2, startColumn: 1, endColumn: 4 })
