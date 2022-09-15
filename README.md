@@ -4,12 +4,12 @@ A simple tool to dynamically build a grid css layout, aswell as dynamically posi
 
 ## How to install
 
-`npm i <name-of-package>`
+`npm i gridlify`
 
 
 ## How to use 
 
-Note that `<package-name>` uses the doucment.querySelector()-API to select elements in the DOM.
+Note that `gridlify` uses the doucment.querySelector()-API to select elements in the DOM.
 
 - To manipulate elements by `class`, use the `#`identifier. 
 
