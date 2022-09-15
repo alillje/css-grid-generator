@@ -15,7 +15,7 @@
 
 7. Grid columns must be passed in as a string.
 
-8. All grid rows, column and gap values must be in the form of an integer followed by a valid CSS unit measurement( example: `200px`, `1fr` or `100%`. )
+8. All grid rows, column and gap values must be in the form of an integer followed by a valid CSS unit measurement( example: `200px`, `1fr` or `100%`. ) or  OR of a valid CSS sizing key-word)
 
 
 ## Non-functional requriements

@@ -2,6 +2,36 @@
 
 ## Manual testing
 
+### Test suite 3
+- Date 15/9 2022
+- version 1.2.0
+
+#### Notes
+- Added more manual tests to test-specification. 
+
+| Test      |  |
+| --------- |:----:|
+| TC1.1     | OK |
+| TC1.2     | OK |
+| TC1.3     | OK |
+| TC1.4     | OK |
+| TC1.5     | OK |
+| COVERAGE & SUCCESS   | 5/5 OK 
+
+| Test      |  |
+| --------- |:----:|
+| TC2.1     | OK |
+| TC2.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      |  |
+| --------- |:----:|
+| TC3.1     | OK |
+| TC3.2     | OK |
+| TC3.3     | OK |
+| COVERAGE & SUCCESS   | 3/3 OK 
+
+
 ### Test suite 2
 - Date 14/9 2022
 - version 1.2.0
