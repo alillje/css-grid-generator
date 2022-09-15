@@ -5,8 +5,8 @@
  * version 1.2.0
  */
 
-import { Measurements } from './css-measurments.js'
-import { CssSizingKeywords } from './css-sizing-keywords.js'
+import { Measurements } from '../enum/css-measurments.js'
+import { CssSizingKeywords } from '../enum/css-sizing-keywords.js'
 
 /**
  * Validates input values for css grid rows or columns.

@@ -44,6 +44,7 @@ export class GridValidator {
    *
    * @param {object} positions - An object containin all the position properties in a css grid.
    * @returns {object} - Object containing CSS position values.
+   * @throws {(Error)} - If positions object contains no start or end values.
    */
   validatePositions (positions) {
     const newPositions = Object.assign({}, positions)
