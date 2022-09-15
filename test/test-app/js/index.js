@@ -1,4 +1,4 @@
-import { gridGenerator } from '../../../src/index.js'
+import { gridGenerator } from '../../../src//index.js'
 
 document.querySelector('#numberOfRowsButton').addEventListener('click', (event) => {
   event.preventDefault()
@@ -105,7 +105,6 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < columns.length; j++) {
       gridGenerator.setPostition({ startRow: i + 1, startColumn: j + 1 }, `#div${i + 1}`)
-      console.log(gridGenerator.getPositionCss({ startRow: i + 1, startColumn: j + 1 }))
       document.querySelector('#childrenCss').textContent += `div${divNumber} ${gridGenerator.getPositionCss({ startRow: i + 1, startColumn: j + 1 })}\n`
       divNumber++
     }

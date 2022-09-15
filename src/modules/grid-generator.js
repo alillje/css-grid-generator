@@ -124,7 +124,6 @@ export class GridGenerator {
    */
   setPostition ({ startRow, endRow, startColumn, endColumn }, element) {
     try {
-      console.log(element)
       const positions = {
         startRow,
         startColumn,
@@ -176,7 +175,7 @@ export class GridGenerator {
   }
 
   /**
-   * Privateodifies an element in the DOM to set grid gap.
+   * Modifies an element in the DOM to set grid gap.
    *
    * @param {string} gap - A stirng containin all the row properties for css grid.
    * @param {string} htmlElement - The DOM element to manipulate.
@@ -193,7 +192,7 @@ export class GridGenerator {
   }
 
   /**
-   * Privateodifies an element in the DOM to set grid gap.
+   * Modifies an element in the DOM to set grid gap.
    *
    * @param {string} gap - A stirng containin all the row properties for css grid.
    * @param {string} htmlElement - The DOM element to manipulate.

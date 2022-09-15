@@ -6,7 +6,7 @@
  */
 
 /**
- * Enum CSS measurements.
+ * Enum CSS sizing key words.
  *
  * @readonly
  * @enum {string}
