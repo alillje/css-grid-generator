@@ -2,7 +2,7 @@
  * Module for class GridValidator.
  *
  * @author Andreas Lillje
- * version 1.0.0
+ * version 1.0.1
  */
 
 import { RowColumnValidator } from './row-column-validator.js'

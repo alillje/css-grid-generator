@@ -2,7 +2,7 @@
  * Module for class RowColumnValidator.
  *
  * @author Andreas Lillje
- * version 1.0.0
+ * version 1.0.1
  */
 
 import { Measurements } from '../enum/css-measurments.js'

@@ -2,7 +2,7 @@
  * Module for CSS sizing keywords.
  *
  * @author Andreas Lillje
- * version 1.0.0
+ * version 1.0.1
  */
 
 /**
