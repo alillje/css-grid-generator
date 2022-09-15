@@ -1,6 +1,6 @@
-# CSS Grid Generator
+# Gridlify
 
-A simple tool to generate a css grid layout.
+A simple tool to dynamically build a grid css layout, aswell as dynamically positioning elements in to grid layouts.
 
 ## How to install
 
