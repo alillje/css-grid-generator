@@ -2,7 +2,7 @@
  * Module for CSS measurements.
  *
  * @author Andreas Lillje
- * version 1.1.2
+ * version 1.2.0
  */
 
 /**

@@ -2,10 +2,11 @@
  * Module for class RowColumnValidator.
  *
  * @author Andreas Lillje
- * version 1.1.2
+ * version 1.2.0
  */
 
 import { Measurements } from './css-measurments.js'
+import { CssSizingKeywords } from './css-sizing-keywords.js'
 
 /**
  * Validates input values for css grid rows or columns.
@@ -20,13 +21,13 @@ export class RowColumnValidator {
    * @throws {(Error)} - If any invalid parameters are passed.
    */
   validate (columnsOrRows) {
-    if (Array.isArray(columnsOrRows)) {
+    if (this.isArray(columnsOrRows)) {
       for (const columnOrRow of columnsOrRows) {
-        if (typeof columnOrRow !== 'string') {
+        if (!this.isString(columnOrRow)) {
           throw new Error('Input must be a string')
-        } else if (!this.hasCorrectSuffix(columnOrRow)) {
-          throw new Error('Input must end with a valid CSS measurement (px, fr, %')
-        } else if (!this.isNumber(columnOrRow)) {
+        } else if (!this.hasCorrectSuffix(columnOrRow) && !this.isSizingKeyword(columnOrRow)) {
+          throw new Error('Input must end with a valid CSS measurement (px, fr, %) or a css sizing keyword')
+        } else if (!this.isSizingKeyword(columnOrRow) && !this.isNumber(columnOrRow)) {
           throw new Error('Row and column values must be numbers followed by a CSS unit prefix')
         }
       }
@@ -47,21 +48,6 @@ export class RowColumnValidator {
     } else {
       return false
     }
-  }
-
-  /**
-   * Checks if a string representing a css value can be converted to a valid number.
-   *
-   * @param {string} cssValue - The string to validate.
-   * @returns {boolean} true if the string can be converted to a valid number, otherwise false.
-   */
-  isNumber (cssValue) {
-    let isNumber = true
-    const extracedValue = this.removeUnitSuffix(cssValue)
-    if ((typeof parseInt((extracedValue)) !== 'number') || isNaN(extracedValue)) {
-      isNumber = false
-    }
-    return isNumber
   }
 
   /**
@@ -88,6 +74,63 @@ export class RowColumnValidator {
       if (cssValue.endsWith(unit)) {
         return unit
       }
+    }
+  }
+
+  /**
+   * Checks if a CSS value has the value of a valid css sizing keyword.
+   *
+   * @param {string} cssValue - The css value to validate.
+   * @returns {boolean} - true if column or row is a valid css sizing keyword, otherwie efalse.
+   */
+  isSizingKeyword (cssValue) {
+    if (Object.values(CssSizingKeywords).some(keyword => cssValue.endsWith(keyword))) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  /**
+   * Checks if a string representing a css value can be converted to a valid number.
+   *
+   * @param {string} cssValue - The string to validate.
+   * @returns {boolean} true if the string can be converted to a valid number, otherwise false.
+   */
+  isNumber (cssValue) {
+    let isNumber = true
+    const extracedValue = this.removeUnitSuffix(cssValue)
+    if ((typeof parseInt((extracedValue)) !== 'number') || isNaN(extracedValue)) {
+      isNumber = false
+    }
+    return isNumber
+  }
+
+  /**
+   * Checks if the given argument is an array.
+   *
+   * @param {Array} rowsOrColumns - The array to validate.
+   * @returns {boolean} - True if argument is an array, otherwise false.
+   */
+  isArray (rowsOrColumns) {
+    if (!Array.isArray(rowsOrColumns)) {
+      return false
+    } else {
+      return true
+    }
+  }
+
+  /**
+   * Checks if the given argument is a string.
+   *
+   * @param {Array} htmlElement - The string to validate.
+   * @returns {boolean} - True if argument is a string, otherwise false.
+   */
+  isString (htmlElement) {
+    if (typeof htmlElement !== 'string') {
+      return false
+    } else {
+      return true
     }
   }
 }

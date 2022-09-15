@@ -2,7 +2,7 @@
  * Module for class GridValidator.
  *
  * @author Andreas Lillje
- * version 1.1.2
+ * version 1.2.0
  */
 
 import { RowColumnValidator } from './row-column-validator.js'
@@ -56,5 +56,20 @@ export class GridValidator {
       throw new Error('Start values for row and column is mandatory')
     }
     return newPositions
+  }
+
+  /**
+   * Validates if an html element is passed as a string.
+   *
+   * @param {string} htmlElement - A sring represening a HTML DOM Element.
+   * @returns {boolean} true if all passed arguments are valid, otherwise false.
+   * @throws {(Error)} - If argument is not a string.
+   */
+  isString (htmlElement) {
+    if (!this.#gapValidator.isString(htmlElement)) {
+      throw new Error('HTML element identifier must be a string')
+    } else {
+      return true
+    }
   }
 }
