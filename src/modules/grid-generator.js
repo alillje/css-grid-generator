@@ -2,7 +2,7 @@
  * Module for class GridGenerator.
  *
  * @author Andreas Lillje
- * version 1.2.0
+ * version 1.0.0
  */
 
 import { GridValidator } from './grid-validator.js'

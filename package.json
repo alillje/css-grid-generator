@@ -1,7 +1,7 @@
 {
-  "name": "css-grid-generator",
-  "version": "1.2.0",
-  "description": "A simple CSS grid generator",
+  "name": "gridlify",
+  "version": "1.0.0",
+  "description": "A tool to create css-grid layouts and setting positions for elements in a grid layout",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -16,5 +16,9 @@
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
     "@lnu/eslint-config": "^1.1.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alillje/gridlify.git"
+}
 }
