@@ -1,4 +1,4 @@
-import { gridGenerator } from '../../../src//index.js'
+import { gridlify } from '../../../lib/index.js'
 
 document.querySelector('#numberOfRowsButton').addEventListener('click', (event) => {
   event.preventDefault()
@@ -89,8 +89,8 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
     columnGap
   }
 
-  gridGenerator.setGrid(grid, '#gridContainer')
-  document.querySelector('#parentCss').textContent += `.parentElement ${gridGenerator.getGridCss(grid)}`
+  gridlify.setGrid(grid, '#gridContainer')
+  document.querySelector('#parentCss').textContent += `.parentElement ${gridlify.getGridCss(grid)}`
   // Add elements to parent to illustrate grid layout
   for (let i = 0; i < columns.length * rows.length; i++) {
     const child = document.createElement('div')
@@ -104,8 +104,8 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
   let divNumber = 1
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < columns.length; j++) {
-      gridGenerator.setPostition({ startRow: i + 1, startColumn: j + 1 }, `#div${i + 1}`)
-      document.querySelector('#childrenCss').textContent += `div${divNumber} ${gridGenerator.getPositionCss({ startRow: i + 1, startColumn: j + 1 })}\n`
+      gridlify.setPostition({ startRow: i + 1, startColumn: j + 1 }, `#div${i + 1}`)
+      document.querySelector('#childrenCss').textContent += `div${divNumber} ${gridlify.getPositionCss({ startRow: i + 1, startColumn: j + 1 })}\n`
       divNumber++
     }
   }
