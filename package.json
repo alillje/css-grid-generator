@@ -2,23 +2,28 @@
   "name": "gridlify",
   "version": "1.0.1",
   "description": "A tool to create css-grid layouts and setting positions for elements in a grid layout",
-  "main": "./src/index.js",
+  "main": "./lib/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node lib/index.js",
     "lint": "npx eslint ./ || exit 0",
     "lint:fix": "npx eslint ./ --fix || exit 0",
-    "test": "npx --node-options=--experimental-vm-modules jest || exit 0"
-    },
+    "test": "npx --node-options=--experimental-vm-modules jest || exit 0",
+    "build": "webpack --mode production"
+  },
   "author": "Andreas Lillje",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@lnu/eslint-config": "^1.1.6",
+    "babel-loader": "^8.2.5",
     "jest": "^29.0.3",
     "jest-environment-jsdom": "^29.0.3",
-    "@lnu/eslint-config": "^1.1.6"
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alillje/gridlify.git"
-}
+  }
 }
