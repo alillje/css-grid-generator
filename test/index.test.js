@@ -1,7 +1,7 @@
-import { RowColumnValidator } from '../src/row-column-validator.js'
-import { GapValidator } from '../src/gap-validator.js'
-import { GridGenerator } from '../src/grid-generator.js'
-import { GridValidator } from '../src/grid-validator.js'
+import { RowColumnValidator } from '../lib/modules/row-column-validator.js'
+import { GapValidator } from '../lib/modules/gap-validator.js'
+import { GridGenerator } from '../lib/modules/grid-generator.js'
+import { GridValidator } from '../lib/modules/grid-validator.js'
 
 const rowColumnValidator = new RowColumnValidator()
 const gapValidator = new GapValidator()
@@ -247,7 +247,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
         '100fr'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Invalid css unit', () => {
     /**
@@ -258,7 +258,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
         '100sa'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Invalid css unit', () => {
     /**
@@ -269,7 +269,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
         '100x'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Does not contain a parseable number', () => {
     /**
@@ -280,7 +280,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
         'sf45g3x'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Does not contain a parseable number', () => {
     /**
@@ -291,7 +291,7 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
         'yHS'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
 })
 
@@ -324,7 +324,7 @@ describe('GapValidator - Validates gap parameters', () => {
         1
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Not a string', () => {
     /**
@@ -347,7 +347,7 @@ describe('GapValidator - Validates gap parameters', () => {
         '100sa'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Invalid css unit', () => {
     /**
@@ -358,7 +358,7 @@ describe('GapValidator - Validates gap parameters', () => {
         '100x'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Does not contain a parseable number', () => {
     /**
@@ -369,7 +369,7 @@ describe('GapValidator - Validates gap parameters', () => {
         'sf45g3x'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
   test('Incorrect parameter - Does not contain a parseable number', () => {
     /**
@@ -380,7 +380,7 @@ describe('GapValidator - Validates gap parameters', () => {
         'yHS'
       )
     }
-    expect(t1).toThrow(Error)
+    expect(t1).toThrow(TypeError)
   })
 })
 

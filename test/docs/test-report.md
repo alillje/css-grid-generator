@@ -69,6 +69,15 @@
 
 ## Automatic Unit Testing
 
+### Test suite 4
+- Date 16/9 2022
+- version 1.0.3
+#### Notes
+- The code was refactored to not catch errors thrown, but let them be caught and handled by the end user. This, however, resulted in all methods that previously had try..catch blocks now fail their tests as per below. Will need to invesigate further.
+
+<img src="./img/test-suites/16sep22-1.png" width="400px"><br>
+<img src="./img/test-suites/16sep22-2.png" width="400px"><br>
+
 ### Test suite 3
 - Date 13/9 2022
 - version 1.0.2
