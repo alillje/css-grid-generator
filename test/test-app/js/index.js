@@ -104,7 +104,7 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
   let divNumber = 1
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < columns.length; j++) {
-      gridlify.setPostition({ startRow: i + 1, startColumn: j + 1 }, `#div${i + 1}`)
+      gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `#div${i + 1}`)
       document.querySelector('#childrenCss').textContent += `div${divNumber} ${gridlify.getPositionCss({ startRow: i + 1, startColumn: j + 1 })}\n`
       divNumber++
     }

@@ -1,6 +1,6 @@
 {
   "name": "gridlify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A tool to create css-grid layouts and setting positions for elements in a grid layout",
   "main": "./lib/index.js",
   "type": "module",
@@ -20,5 +20,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/alillje/gridlify.git"
-  }
+  },
+  "keywords": [
+    "grid",
+    "layout",
+    "gridlify",
+    "positioning",
+    "css"
+  ]
 }
