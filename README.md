@@ -1,15 +1,15 @@
 # Gridlify
 
-A simple tool to dynamically build a grid css layout, aswell as dynamically positioning elements in to grid layouts.
+Gridlify is a zero-dependency tool to dynamically build a grid css layout, as well as dynamically positioning elements in to grid layouts with an easy-to-use API.
 
 ## How to install
 
-`npm i gridlify`
+`npm install gridlify`
 
 
 ## How to use 
 
-**Import with ES6 module:**<br>
+**Import with ES6 modules:**<br>
 <code>import { gridlify } from '/node_modules/gridlify/lib/index.js'
 </code>
 <br>
@@ -21,7 +21,8 @@ A simple tool to dynamically build a grid css layout, aswell as dynamically posi
     rowGap: '5px', 
     columnGap: '5px'
 }
-
+</code>
+<code>
 gridlify.setGrid(myGrid, 'body')
 </code>
 <br>
@@ -33,8 +34,9 @@ gridlify.setGrid(myGrid, 'body')
     startColumn: 1,
     endColumn: 3 
 }
-
-gridlify.setPosition(myGrid, '#childElement')
+</code>
+<code>
+gridlify.setPosition(myPositions, '#childElement')
 </code>
 <br>
 <br>
@@ -56,9 +58,11 @@ gridlify.setColumnGap('10px', '.parentElement')
 **To get the CSS code for the layout, simply:**<br>
 <code>
 const gridTemplate = gridlify.getGridCss(myGrid, '#childElement')
-
+</code>
+<code>
 console.log(gridTemplate)
-
+</code>
+<code>
 // Output<br>
 // { <br>
 //   display: grid;<br>
@@ -72,9 +76,11 @@ console.log(gridTemplate)
 <code>
 
 const positionTemplate = gridlify.getPositionCss(myPositions, '#childElement')
-
+</code>
+<code>
 console.log(positionTemplate)
-
+</code>
+<code>
 // Output<br>
 // { grid-area: 2 / 1 / 3 / 3; }
 </code>
