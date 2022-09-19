@@ -1,6 +1,6 @@
 {
   "name": "gridlify",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A tool to create css-grid layouts and setting positions for elements in a grid layout",
   "main": "./lib/index.js",
   "type": "module",
