@@ -3,6 +3,36 @@
 ## Manual testing
 
 ### Test suite 3
+- Date 19/9 2022
+- version 1.0.2
+
+#### Notes
+- Added more manual tests to test-specification. 
+
+| Test      |  |
+| --------- |:----:|
+| TC1.1     | OK |
+| TC1.2     | OK |
+| TC1.3     | OK |
+| TC1.4     | OK |
+| TC1.5     | OK |
+| COVERAGE & SUCCESS   | 5/5 OK 
+
+| Test      |  |
+| --------- |:----:|
+| TC2.1     | OK |
+| TC2.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      |  |
+| --------- |:----:|
+| TC3.1     | OK |
+| TC3.2     | OK |
+| TC3.3     | OK |
+| COVERAGE & SUCCESS   | 3/3 OK 
+
+
+### Test suite 3
 - Date 15/9 2022
 - version 1.0.2
 
@@ -68,6 +98,16 @@
 | COVERAGE & SUCCESS   | 2/2 OK 
 
 ## Automatic Unit Testing
+
+### Test suite 4
+- Date 19/9 2022
+- version 1.0.3
+#### Notes
+- Fix bugs found in previous test suite, and edit some automatic unit tests.
+
+<img src="./img/test-suites/19sep22-1.png" width="400px"><br>
+<img src="./img/test-suites/19sep22-2.png" width="400px"><br>
+
 
 ### Test suite 4
 - Date 16/9 2022

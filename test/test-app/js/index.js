@@ -85,12 +85,12 @@ document.querySelector('#setGridButton').addEventListener('click', (event) => {
 
     const grid = {
       rows,
-      columns,
-      rowGap,
-      columnGap
+      columns
     }
 
     gridlify.setGrid(grid, '#gridContainer')
+    gridlify.setRowGap(rowGap, '#gridContainer')
+    gridlify.setColumnGap(columnGap, '#gridContainer')
     document.querySelector('#parentCss').textContent += `.parentElement ${gridlify.getGridCss(grid)}`
     // Add elements to parent to illustrate grid layout
     for (let i = 0; i < columns.length * rows.length; i++) {
