@@ -48,7 +48,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 <br>
 <br>
 **To get the CSS code for the layout, simply:**<br>
-`const gridTemplate = gridlify.getGridCss(myGrid, '#childElement')`
+`const gridTemplate = gridlify.getGridCss(myGrid)`
 <br>
 `console.log(gridTemplate)`<br><br>
 *Output*<br>
@@ -61,7 +61,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 `}`<br>
 <br>
 
-`const positionTemplate = gridlify.getPositionCss(myPositions, '#childElement')`
+`const positionTemplate = gridlify.getPositionCss(myPositions)`
 <br>
 `console.log(positionTemplate)`<br>
 <br>
