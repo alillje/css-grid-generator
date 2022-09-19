@@ -8,10 +8,7 @@ const gapValidator = new GapValidator()
 const gridGenerator = new GridGenerator()
 const gridValidator = new GridValidator()
 
-// MISSING UNIT TEST FOR:
-// GridValidator.validateParams()
-// ----------
-// GridGenerator.setGrid() && GridGenerator.setPosition(), tested manually with testApp
+// GridGenerator.setGrid(), GridGenerator.setPosition(), GridGenerator.setRowGap(), GridGenerator.setColumnGap() tested manually with testApp
 
 /* ============================== */
 /* == RowColumnValidator Tests == */
