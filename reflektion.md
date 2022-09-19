@@ -1,10 +1,40 @@
 # Reflektion
 *1DV610*<br>
 **Andreas Lillje**
+<br>
+<br>
+Efter att ha läs kapitel 2 och 3 i kurslitteraturen (Clean Code), var det jag tog med mig initialt att skriva funktioner/metoder som skulle ha en enda uppgift och på så sätt följa regeln *Do one thing (Kap. 3, Funtions)*, genom att applicera *One level of abstraction (Kap. 3, functions)*.
+<br>
+Genom att försöka applicera dessa regler, tycker jag att det nästan automatiskt uppstod ett bättre utgångsläge att följa ytterliggare en regel, nämligen *Small! (Kap. 3, functions)*, då funktionerna blev kortare och fick ett mer isolerat anvsvarsområde. 
+<br>
+<br>
+Jag har tidigare kommit på mig själv att ta en bekvämare väg och låta en funktion sköta flera saker, men i den här uppgiften ville jag bryta ut så mycket som möjligt i små, korta funktioner. 
+<br>
+<br>
+En insikt är att om man gör jobbet från början, att med andra ord bryta ut delar ur funktioner i mindre funktioner så blir det betydligt lättare att navigera i koden, hitta fel och åtgärda eventuella buggar. 
+<br>
+Med detta sagt kan jag vittna om att koden jag har skrivit i den här uppgiften inte följer alla regler perfekt, men detta har alltså från början vara en målsättning för att på så sätt förbättra min egen kodkvalitet. 
+<br>
+<br>
+Vidare har jag haft som målsättning att följa regler för namngivning, exempelvis *Use descriptive names (Kap 3., functions)*. Jag har strävat efter att vara konsekvent i namngivningen och anända samma fraser, verb och substantiv genomgående i hela kodbasen. 
+<br>
+<br>
+En regel jag i ett fall har misslyckats att uppfylla är att inte ha för många argument i en funktion. 
+I klassen GridValidator, finns en funktion som är namngiven `validateParams(rows, columns, rowGap, columnGap`. 
 
+Enligt ltteraturen är funktioner som tar 3 argument *(Triads)*, betydligt svårare att förstå än funktioner som tar 2 argument *(Dyads)*, och i det här fallet har jag alltså 4 argument. 
+<br>
+<br>
+Namngivning av klasser har gjorts i enlighet med av litteraturen föreslagna regler. De är substantiv, och jag använder inga ord som kan missförstås. *(Kap 2., Class Names)*
+Genomgående har jag även undvikit att enkoda typer i variabelnamn, enligt *(Avoid Encodings (Kap 2)*., samt varit noga med att använda uttalbara namn, enligt *Use pronounciable names (Kap 2)*.
 
-Jag har försökt fokusera på att skriva så korta funktioner/metoder som möjligt och har velat följa regeln enligt kapitel 3 i boken att de ska vara så korta som möjligt, och bara göra en sak. 
-
+Att även följa regeln för *Avoid Disinformation (Kap 2, Meaningful names)* har jag försökt låtit genomsyra arbetet med koden, vilket i vissa fall resulterat i något längre namn än vad som alltid är önskvärt, detta är dock något som kan vara eftersträvansvärt, eftersom att längre namn i vissa fall trumfar kortare namn, enligt regeln *Use Searchable Names (Kap 2, Meaningful names)*.
+<br>
+<br>
+Sammanfattningsvis tycker jag att kapitel 2 och 3 i Clean Code har varit hjälpsamma i min egen strävan att skriva mer *läsbar* och *användbar* kod. 
+<br>
+Detta är någonting jag kommit till insikt med att kodkvalitet och ens förmåga att skriva "bättre" kod, är och kommer att vara en ständigt pågående process, vilket också ger en möjligheten att ständigt utvecklas. 
+ 
 ## **Namngivning**
 | Namn & Förklaring     | Reflektion |
 | --------- |:----:|
