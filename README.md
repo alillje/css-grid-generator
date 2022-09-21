@@ -76,6 +76,8 @@ Note that `gridlify` uses the doucment.querySelector()-API to select elements in
 - To manipulate elements by `id`, use the `#`-identifier. 
 
 ## CSS Measurements
+As demonstrated in **How to use**, all input must be a string containing a non-negative number, followed by a valid CSS measurement.
+
 Currently, the following CSS measurements are possible to use with `gridlify`
 *  px
 *  fr

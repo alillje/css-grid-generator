@@ -29,6 +29,8 @@ export function setGridLayout () {
     gridlify.setGrid(grid, '#gridContainer')
     gridlify.setRowGap(rowGap, '#gridContainer')
     gridlify.setColumnGap(columnGap, '#gridContainer')
+    grid.rowGap = rowGap
+    grid.columnGap = columnGap
     document.querySelector('#parentCss').textContent += `.parentElement ${gridlify.getGridCss(grid)}`
     // Add elements to parent to illustrate grid layout
     for (let i = 0; i < columns.length * rows.length; i++) {
