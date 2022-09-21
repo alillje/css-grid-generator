@@ -193,4 +193,22 @@ Manual testing will be performed using the test application, located in the test
 - The following error message should be displayed in the console<br>
 <img src="./img/test-23.png" width="400px">
 
+#### TC3.4
+* *Input*
+1. Start the test application by opening ./tests/test-app/index.html in a web browser. 
+2. Fill in input fiels as follows (leave all empty):<br>
+<img src="./img/test-24.png" width="450px"><br>
+
+3. Press `Set grid layout` button
+
+#### *Output*
+- Open browser inspector and inspect the elements.
+- Find the `div`-element with the `gridContainer`-id
+- Grid should not have been set on the element, as follows: <br>
+<img src="./img/test-17.png" width="100px"><br>
+- In the web inspector, open the console<br>
+<img src="./img/console-example.png" width="300px"><br>
+- The following error message should be displayed in the console<br>
+<img src="./img/test-25.png" width="400px">
+
 
