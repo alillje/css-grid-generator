@@ -22,7 +22,9 @@ Vidare har jag haft som målsättning att följa regler för namngivning, exempe
 En regel jag i ett fall har misslyckats att uppfylla är att inte ha för många argument i en funktion. 
 I klassen GridValidator, finns en funktion som är namngiven `validateParams(rows, columns, rowGap, columnGap`. 
 
-Enligt ltteraturen är funktioner som tar 3 argument *(Triads)*, betydligt svårare att förstå än funktioner som tar 2 argument *(Dyads)*, och i det här fallet har jag alltså 4 argument. 
+Enligt ltteraturen är funktioner som tar 3 argument *(Triads)*, betydligt svårare att förstå än funktioner som tar 2 argument *(Dyads)*, och i det här fallet har jag alltså 4 argument.
+<br>
+Efter denna insikt skrevs koden om. Metoden döptes om till validateAllParams(gridParams), för att förtydliga metodens uppgift något, samt att metoden tar in ett objekt istället för fyra olika parametrar. På så sätt följs regeln *Common Monadic Forms (Kap 3, functions)*. 
 <br>
 <br>
 Namngivning av klasser har gjorts i enlighet med av litteraturen föreslagna regler. De är substantiv, och jag använder inga ord som kan missförstås. *(Kap 2., Class Names)*
