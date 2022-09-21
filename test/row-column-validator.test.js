@@ -126,46 +126,55 @@ describe('RowColumnValidator - Removes unit suffix from string and returns extra
 
 describe('RowColumnValidator - Input is parseable number', () => {
   test('Correct input - px', () => {
-    expect(rowColumnValidator.isNumber('200px')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('200px')).toBe(true)
   })
   test('Correct input - px', () => {
-    expect(rowColumnValidator.isNumber('30px')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('30px')).toBe(true)
   })
   test('Correct input - px', () => {
-    expect(rowColumnValidator.isNumber('1px')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('1px')).toBe(true)
   })
   test('Correct input - fr', () => {
-    expect(rowColumnValidator.isNumber('400fr')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('400fr')).toBe(true)
   })
   test('Correct input - fr', () => {
-    expect(rowColumnValidator.isNumber('30fr')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('30fr')).toBe(true)
   })
   test('Correct input - fr', () => {
-    expect(rowColumnValidator.isNumber('1fr')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('1fr')).toBe(true)
   })
   test('Correct input - %', () => {
-    expect(rowColumnValidator.isNumber('100%')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('100%')).toBe(true)
   })
   test('Correct input - %', () => {
-    expect(rowColumnValidator.isNumber('82%')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('82%')).toBe(true)
   })
   test('Correct input - %', () => {
-    expect(rowColumnValidator.isNumber('3%')).toBe(true)
+    expect(rowColumnValidator.isPositiveNumber('3%')).toBe(true)
   })
-  test('Incorrect input', () => {
-    expect(rowColumnValidator.isNumber('abcdef')).toBe(false)
+  test('Incorrect input - Not parseable number', () => {
+    expect(rowColumnValidator.isPositiveNumber('abcdef')).toBe(false)
   })
-  test('Incorrect input', () => {
-    expect(rowColumnValidator.isNumber('3xfF3vh')).toBe(false)
+  test('Incorrect input - Not parseable number', () => {
+    expect(rowColumnValidator.isPositiveNumber('3xfF3vh')).toBe(false)
   })
-  test('Incorrect input', () => {
-    expect(rowColumnValidator.isNumber('uscem')).toBe(false)
+  test('Incorrect input - Not parseable number', () => {
+    expect(rowColumnValidator.isPositiveNumber('uscem')).toBe(false)
   })
-  test('Incorrect input', () => {
-    expect(rowColumnValidator.isNumber('SFspc')).toBe(false)
+  test('Incorrect input - Not parseable number', () => {
+    expect(rowColumnValidator.isPositiveNumber('SFspc')).toBe(false)
   })
-  test('Incorrect input', () => {
-    expect(rowColumnValidator.isNumber('Asf')).toBe(false)
+  test('Incorrect input - Not parseable number', () => {
+    expect(rowColumnValidator.isPositiveNumber('Asf')).toBe(false)
+  })
+  test('Incorrect input - Not a positive number', () => {
+    expect(rowColumnValidator.isPositiveNumber('-200px')).toBe(false)
+  })
+  test('Incorrect input - Not a positive number', () => {
+    expect(rowColumnValidator.isPositiveNumber('-10%')).toBe(false)
+  })
+  test('Incorrect input - Not a positive number', () => {
+    expect(rowColumnValidator.isPositiveNumber('-2fr')).toBe(false)
   })
 })
 
@@ -277,6 +286,17 @@ describe('RowColumnValidator - Validates row and column parameters', () => {
     const t1 = () => {
       rowColumnValidator.validate(
         'yHS'
+      )
+    }
+    expect(t1).toThrow(TypeError)
+  })
+  test('Incorrect parameter - Is a negative number', () => {
+    /**
+     * Wrapping function requried to test throws.
+     */
+    const t1 = () => {
+      rowColumnValidator.validate(
+        ['-200px']
       )
     }
     expect(t1).toThrow(TypeError)
