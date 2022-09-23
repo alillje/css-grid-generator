@@ -9,11 +9,11 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 
 ## How to use 
 
-**Import with ES6 modules:**<br>
+**Import with ES6 modules**<br>
 `import { gridlify } from '/node_modules/gridlify/lib/index.js'`
 <br>
 <br>
-**Set grid layout for html element:**<br>
+**Set grid layout for html element**<br>
 `const myGrid = {`<br>
     `rows: ['200px', '500px', '500px', '200px'],`<br>
     `columns: ['1fr', '1fr', '1fr'],`<br>
@@ -23,7 +23,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 `gridlify.setGrid(myGrid, 'body')`
 <br>
 <br>
-**Position a html element in the grid:**<br>
+**Position a html element in the grid**<br>
 `const myPositions = {`<br>
     `startRow: 2, `<br>
     `endRow: 3, `<br>
@@ -34,7 +34,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 `gridlify.setPosition(myPositions, '#childElement')`
 <br>
 <br>
-**You can also change rows, columns and gap properties individually:**<br>
+**You can also change rows, columns and gap properties individually**<br>
 `gridlify.setRows(['20%', '20%', '60%'], '.parentElement')`
 <br>
 <br>
@@ -47,7 +47,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 `gridlify.setColumnGap('10px', '.parentElement')`
 <br>
 <br>
-**To get the CSS code for the layout, simply:**<br>
+**To get the CSS code for the layout, simply**<br>
 `const gridTemplate = gridlify.getGridCss(myGrid)`
 <br>
 `console.log(gridTemplate)`<br><br>
@@ -69,7 +69,7 @@ Gridlify is a zero-dependency tool to dynamically build a grid css layout, as we
 `{ grid-area: 2 / 1 / 3 / 3; }`
 <br>
 <br>
-Note that `gridlify` uses the doucment.querySelector()-API to select elements in the DOM.
+Note that `gridlify` uses the doucment.querySelector-API to select elements in the DOM.
 
 - To manipulate elements by `class`, use the `.`-identifier. 
 
@@ -87,7 +87,6 @@ When setting row and column values, it is also possible to use specific sizing-k
 
 * auto
 * min-content
-
 
 
 ## Contributing
