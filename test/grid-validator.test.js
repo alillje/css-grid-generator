@@ -90,7 +90,7 @@ describe('GridValidator - Validate position values when positioning an element i
 
     test('Invalid input - not a string', () => {
       /**
-       * Wrapping function requried to test throws.
+       * Wrapping function requried to test throw.
        */
       const t1 = () => {
         gridValidator.validatePositions(true)
